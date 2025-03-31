@@ -1,5 +1,5 @@
 import { useState } from "react";
-import frame from "../../public/frame.png";
+import changeThemeIcon from "../../public/changeThemeIcon.png";
 
 export default function ChangeTheme() {
   const [theme, setTheme] = useState("light");
@@ -9,10 +9,8 @@ export default function ChangeTheme() {
   };
 
   return (
-    <>
-      <button onClick={toggleTheme}>
-        <img src={frame} alt="Смена темы" />
-      </button>
-    </>
+    <button onClick={toggleTheme}>
+      <img src={changeThemeIcon} alt="Смена темы" />
+    </button>
   );
 }
