@@ -1,15 +1,17 @@
 import { useState } from "react";
 import changeThemeIcon from "../../public/changeThemeIcon.png";
+import styles from "./ChangeTheme.module.css";
 
 export default function ChangeTheme() {
   const [theme, setTheme] = useState("light");
 
   const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
+    setTheme((prevState) => (prevState === "light" ? "dark" : "light"));
   };
 
   return (
-    <button onClick={toggleTheme}>
+    // доделать логику
+    <button onClick={toggleTheme} className="{styles.themeButton}">
       <img src={changeThemeIcon} alt="Смена темы" />
     </button>
   );
