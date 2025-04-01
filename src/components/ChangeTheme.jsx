@@ -11,8 +11,11 @@ export default function ChangeTheme() {
 
   return (
     // доделать логику
-    <button onClick={toggleTheme} className="{styles.themeButton}">
-      <img src={changeThemeIcon} alt="Смена темы" />
-    </button>
+    // временно !!!!!
+    <div className={theme === styles.lightTheme}>
+      <button onClick={toggleTheme} className="{styles.themeButton}">
+        <img src={changeThemeIcon} alt="Смена темы" />
+      </button>
+    </div>
   );
 }
