@@ -1,4 +1,4 @@
-import ChangeTheme from "../ChangeTheme.jsx";
+import ChangeTheme from "../ChangeTheme/ChangeTheme.jsx";
 import CurrentTime from "../CurrentTime.jsx";
 import styles from "./Header.module.css";
 

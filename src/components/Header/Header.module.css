@@ -5,5 +5,9 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #000000;
-  background: #ffffff;
+  background-color: var(--header-backgound-color);
+}
+
+.header__logo {
+  color: var(--header-text-color);
 }
