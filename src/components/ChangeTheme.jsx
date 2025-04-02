@@ -1,6 +1,7 @@
 import { useState } from "react";
-import changeThemeIcon from "../../public/changeThemeIcon.png";
+import { SunMoon } from "lucide-react";
 import styles from "./ChangeTheme.module.css";
+// import styles from "./ChangeTheme.module.css";
 
 export default function ChangeTheme() {
   const [theme, setTheme] = useState("light");
@@ -12,9 +13,11 @@ export default function ChangeTheme() {
   return (
     // доделать логику
     // временно !!!!!
-    <div className={theme === styles.lightTheme}>
-      <button onClick={toggleTheme} className="{styles.themeButton}">
-        <img src={changeThemeIcon} alt="Смена темы" />
+    <div className={theme === "light" ? styles.lightTheme : styles.darkTheme}>
+      <button onClick={toggleTheme} className={styles.themeButton}>
+        <div className={styles.changeThemeIcon}>
+          <SunMoon />
+        </div>
       </button>
     </div>
   );

@@ -2,3 +2,17 @@
   background-color: #fff;
   color: #000;
 }
+
+.changeThemeIcon {
+  width: 41px;
+  height: 41px;
+  /* overflow: hidden; */
+  border-radius: 50%;
+
+}
+
+.changeThemeIcon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}

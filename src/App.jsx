@@ -1,5 +1,5 @@
 import Header from "./components/Header/Header.jsx";
-import "./App.css";
+import "./App.module.css";
 
 export default function App() {
   return (
