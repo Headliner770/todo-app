@@ -10,12 +10,10 @@ export default function ChangeTheme() {
   };
 
   return (
-    // доделать логику
-    // временно !!!!!
     <div className={theme === "light" ? styles.lightTheme : styles.darkTheme}>
       <button onClick={toggleTheme} className={styles.themeButton}>
         <div className={styles.changeThemeIcon}>
-          <SunMoon size={41} color="red" />
+          <SunMoon size={41} />
         </div>
       </button>
     </div>

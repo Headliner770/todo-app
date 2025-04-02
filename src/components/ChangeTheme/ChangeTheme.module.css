@@ -1,14 +1,6 @@
-.lightTheme {
-  background-color: #fff;
-  color: #000;
-}
-
 .changeThemeIcon {
-  width: 41px;
-  height: 41px;
   /* overflow: hidden; */
   border-radius: 50%;
-
 }
 
 .changeThemeIcon svg {
