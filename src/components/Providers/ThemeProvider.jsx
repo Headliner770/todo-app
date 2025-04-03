@@ -1,7 +1,6 @@
 import React, { createContext, useEffect } from "react";
-import { useLocalStorage } from "../../hooks/useLocalStorage"; // кастомный хук
-// import { ThemeContext } from "react";
-export const ThemeContext = createContext(); // пытался ThemeContext отделить
+import { useLocalStorage } from "../../hooks/useLocalStorage";
+export const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useLocalStorage("theme", "light");

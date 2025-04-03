@@ -5,10 +5,8 @@ import { ThemeProvider } from "./components/Providers/ThemeProvider.jsx";
 export default function App() {
   return (
     <ThemeProvider>
-      <>
-        <Header />
-        <AppContent />
-      </>
+      <Header />
+      <AppContent />
     </ThemeProvider>
   );
 }
