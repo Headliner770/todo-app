@@ -3,7 +3,7 @@ import { ThemeContext } from "../Providers/ThemeProvider.jsx";
 import { SunMoon } from "lucide-react";
 import styles from "./Header.module.css";
 
-function Header() {
+export function Header() {
   const [theme, setTheme] = useContext(ThemeContext);
 
   const changeTheme = () => {
@@ -22,4 +22,3 @@ function Header() {
     </header>
   );
 }
-export default Header;
