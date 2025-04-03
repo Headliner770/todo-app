@@ -1,9 +1,10 @@
-import React, { useState, createContext, useEffect } from "react";
-
-export const ThemeContext = createContext();
+import React, { createContext, useEffect } from "react";
+import { useLocalStorage } from "../../hooks/useLocalStorage"; // кастомный хук
+// import { ThemeContext } from "react";
+export const ThemeContext = createContext(); // пытался ThemeContext отделить
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useLocalStorage("theme", "light");
 
   useEffect(() => {
     if (theme === "dark") document.body.classList.add("dark");

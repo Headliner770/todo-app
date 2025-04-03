@@ -1,21 +1,25 @@
 import { useContext } from "react";
-import ChangeTheme from "../ChangeTheme/ChangeTheme.jsx";
-import CurrentTime from "../CurrentTime.jsx";
 import { ThemeContext } from "../Providers/ThemeProvider.jsx";
+import { SunMoon } from "lucide-react";
 import styles from "./Header.module.css";
 
-export default function Header() {
+function Header() {
   const [theme, setTheme] = useContext(ThemeContext);
 
-  const adaptTheme = () => {
+  const changeTheme = () => {
     setTheme(theme === "light" ? "dark" : "light");
   };
-  
+
   return (
     <header className={styles.header}>
       <h2>To Do App</h2>
-      <CurrentTime />
-      <ChangeTheme />
+      <span className="header__logo">ThemeProvider</span>
+      <button className="button header__theme-button" onClick={changeTheme}>
+        <div className={styles.changeThemeIcon}>
+          <SunMoon size={41} />
+        </div>
+      </button>
     </header>
   );
 }
+export default Header;

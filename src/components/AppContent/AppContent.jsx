@@ -1,4 +1,5 @@
 import styles from "./AppContent.module.css";
+import React from "react";
 
 export default function AppContent() {
   return (
@@ -27,3 +28,4 @@ export default function AppContent() {
     </main>
   );
 }
+
