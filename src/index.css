@@ -53,8 +53,8 @@ p {
 
 body {
   font-family: "Inter";
-  --header-backgound-color: #1f5ac7;
-  --header-text-color: #ffffff;
+  --header-backgound-color: #ffffff;
+  --header-text-color: #000000;
 
   --a-background-color: #ffffff;
   --main-text-color: #000536;
@@ -65,10 +65,10 @@ body {
 
 body.dark {
   font-family: "Inter";
-  --header-backgound-color: #06193d;
-  --header-text-color: #c5c5c5;
+  --header-backgound-color: #252525;
+  --header-text-color: #ffffff;
 
-  --main-background-color: #393939;
+  --main-background-color: #232323;
   --main-text-color: #c5c5c5;
 
   --footer-backgound-color: #06193d;

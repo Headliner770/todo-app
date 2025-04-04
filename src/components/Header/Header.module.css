@@ -6,19 +6,5 @@
   align-items: center;
   border-bottom: 1px solid #000000;
   background-color: var(--header-backgound-color);
-}
-
-.header__logo {
-  font-size: 20px;
-  line-height: 1;
-  font-weight: 500;
   color: var(--header-text-color);
-}
-
-.header__theme-button {
-  margin-left: auto;
-  border: 1px solid var(--header-text-color);
-  padding: 4px 8px;
-  color: var(--header-text-color);
-  cursor: pointer;
 }
