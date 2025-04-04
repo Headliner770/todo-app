@@ -53,24 +53,29 @@ p {
 
 body {
   font-family: "Inter";
+
   --header-backgound-color: #ffffff;
   --header-text-color: #000000;
 
   --a-background-color: #ffffff;
-  --main-text-color: #000536;
+  --main-text-color: #000000;
 
-  --footer-backgound-color: #1f5ac7;
-  --footer-text-color: #ffffff;
+  --footer-backgound-color: #ffffff;
+  --footer-text-color: #000000;
+
+  transition: --header-background-color 0.5s ease, --header-text-color 0.5s ease,
+    --main-background-color 0.5s ease, --main-text-color 0.5s ease,
+    --footer-background-color 0.5s ease, --footer-text-color 0.5s ease;
 }
 
 body.dark {
   font-family: "Inter";
-  --header-backgound-color: #252525;
+  --header-backgound-color: rgba(0, 0, 0, 0.85);
   --header-text-color: #ffffff;
 
-  --main-background-color: #232323;
-  --main-text-color: #c5c5c5;
+  --main-background-color: rgba(0, 0, 0, 0.85);
+  --main-text-color: #ffffff;
 
-  --footer-backgound-color: #06193d;
-  --footer-text-color: #c5c5c5;
+  --footer-backgound-color: rgba(0, 0, 0, 0.85);
+  --footer-text-color: #ffffff;
 }
