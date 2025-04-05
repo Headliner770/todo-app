@@ -63,9 +63,9 @@ body {
   --footer-backgound-color: #ffffff;
   --footer-text-color: #000000;
 
-  transition: --header-background-color 0.5s ease, --header-text-color 0.5s ease,
-    --main-background-color 0.5s ease, --main-text-color 0.5s ease,
-    --footer-background-color 0.5s ease, --footer-text-color 0.5s ease;
+  transition: --header-background-color 0.7s ease, --header-text-color 0.7s ease,
+    --main-background-color 0.7s ease, --main-text-color 0.7s ease,
+    --footer-background-color 0.7s ease, --footer-text-color 0.7s ease;
 }
 
 body.dark {

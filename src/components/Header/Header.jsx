@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { ThemeContext } from "../Providers/ThemeProvider.jsx";
 import CurrentTime from "../CurrentTime.jsx";
-import { SunMoon } from "lucide-react";
+import { Sun, Moon } from "lucide-react";
 import styles from "./Header.module.css";
 
 export function Header() {
@@ -10,14 +10,18 @@ export function Header() {
   const changeTheme = () => {
     setTheme(theme === "light" ? "dark" : "light");
   };
- 
+
   return (
     <header className={styles.header}>
       <h2>To Do App</h2>
       <CurrentTime />
       <button className="button header__theme-button" onClick={changeTheme}>
-        <div>
-          <SunMoon size={41} />
+        <div className="logo">
+          {theme === "light" ? (
+            <Sun color="black" size={40} />
+          ) : (
+            <Moon color="black" size={40} />
+          )}
         </div>
       </button>
     </header>
