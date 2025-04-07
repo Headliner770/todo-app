@@ -1,6 +1,10 @@
 .main {
   width: 100%;
   background-color: var(--main-background-color);
+
+  transition: background-color 0.7s ease, color 0.7s ease;
+
+  color: var(--main-text-color);
 }
 
 .main h2 {

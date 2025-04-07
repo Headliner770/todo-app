@@ -45,37 +45,21 @@ p {
   margin-bottom: 1rem;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   font-family: "Inter";
-
-  --header-backgound-color: #ffffff;
+  --header-background-color: #ffffff;
   --header-text-color: #000000;
-
-  --a-background-color: #ffffff;
-  --main-text-color: #000000;
-
-  --footer-backgound-color: #ffffff;
-  --footer-text-color: #000000;
-
-  transition: --header-background-color 0.7s ease, --header-text-color 0.7s ease,
-    --main-background-color 0.7s ease, --main-text-color 0.7s ease,
-    --footer-background-color 0.7s ease, --footer-text-color 0.7s ease;
+  --main-background-color: #f0f0f0;
+  --main-text-color: #333333;
+  background-color: var(--main-background-color);
+  color: var(--main-text-color);
+  transition: background-color 0.7s ease, color 0.7s ease;
 }
 
 body.dark {
   font-family: "Inter";
-  --header-backgound-color: rgba(0, 0, 0, 0.85);
+  --header-background-color: rgba(0, 0, 0, 0.85);
   --header-text-color: #ffffff;
-
   --main-background-color: rgba(0, 0, 0, 0.85);
   --main-text-color: #ffffff;
-
-  --footer-backgound-color: rgba(0, 0, 0, 0.85);
-  --footer-text-color: #ffffff;
 }

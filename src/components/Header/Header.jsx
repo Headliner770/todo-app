@@ -15,8 +15,8 @@ export function Header() {
     <header className={styles.header}>
       <h2>To Do App</h2>
       <CurrentTime />
-      <button className="button header__theme-button" onClick={changeTheme}>
-        <div className="logo">
+      <button onClick={changeTheme}>
+        <div>
           {theme === "light" ? (
             <Sun color="black" size={40} />
           ) : (
