@@ -45,32 +45,20 @@ p {
   margin-bottom: 1rem;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   font-family: "Inter";
-  --header-backgound-color: #1f5ac7;
-  --header-text-color: #ffffff;
-
-  --a-background-color: #ffffff;
-  --main-text-color: #000536;
-
-  --footer-backgound-color: #1f5ac7;
-  --footer-text-color: #ffffff;
+  --header-background-color: #ffffff;
+  --header-text-color: #000000;
+  --main-background-color: #f0f0f0;
+  --main-text-color: #000000;
+  background-color: var(--main-background-color);
+  color: var(--main-text-color);
 }
 
 body.dark {
   font-family: "Inter";
-  --header-backgound-color: #06193d;
-  --header-text-color: #c5c5c5;
-
-  --main-background-color: #393939;
-  --main-text-color: #c5c5c5;
-
-  --footer-backgound-color: #06193d;
-  --footer-text-color: #c5c5c5;
+  --header-background-color: rgba(0, 0, 0, 0.85);
+  --header-text-color: #ffffff;
+  --main-background-color: rgba(0, 0, 0, 0.85);
+  --main-text-color: #ffffff;
 }
