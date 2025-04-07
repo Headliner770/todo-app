@@ -5,8 +5,8 @@ export const AccessManagement = () => {
     <div className={styles.block}>
       <div className={styles.windows}>
         <div className={styles.tabs}>
-          <button>Вход</button>
-          <button>Регистрация</button>
+          <button className={styles.button}>Вход</button>
+          <button className={styles.button}>Регистрация</button>
         </div>
       </div>
     </div>
