@@ -1,0 +1,17 @@
+.block {
+  display: flex;
+  justify-content: center;
+  height: 250px;
+  background-color: #ffffff;
+  border-radius: 20px;
+}
+
+.windows {
+  background-color: #8d8c8c;
+  padding: 50px;
+  width: 500px;
+}
+
+.tabs {
+  display: flex;
+}
