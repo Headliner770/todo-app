@@ -3,7 +3,7 @@ import React from "react";
 
 export function AppContent() {
   return (
-    <main className={styles.main}>
+    <main >
       <div>
         <h1>hello!</h1>
         <h2>
