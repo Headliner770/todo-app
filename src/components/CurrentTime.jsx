@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function CorrentTime() {
+export function CorrentTime() {
   const [now, setNow] = useState(new Date());
 
   useEffect(() => {

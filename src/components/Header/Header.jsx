@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { ThemeContext } from "../Providers/ThemeProvider.jsx";
-import CurrentTime from "../CurrentTime.jsx";
+import { CurrentTime } from "../CurrentTime.jsx";
 import { Sun, Moon } from "lucide-react";
 import styles from "./Header.module.css";
 

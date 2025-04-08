@@ -15,7 +15,14 @@
   border-radius: 20px;
 }
 
+.tabs {
+  display: flex;
+  justify-content: center;
+}
+
 .button {
+  margin: 8px 12px;
   width: 155px;
   padding: 10px 10px;
+  border-radius: 10px;
 }
