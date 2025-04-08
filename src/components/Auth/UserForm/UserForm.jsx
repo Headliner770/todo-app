@@ -10,12 +10,17 @@ export const UserForm = () => {
       <div className={styles.inputFields}>
         {/* id заглушки */}
         <label htmlFor="email">Email</label>
-        <input type="email" id="123" />
+        <input type="email" id="123" value={email} onChange={() => setEmail} />
       </div>
       <div className={styles.inputFields}>
         {/* id заглушки */}
         <label htmlFor="password">Password</label>
-        <input type="password" id="12" />
+        <input
+          type="password"
+          id="12"
+          value={password}
+          onChange={() => setPassword}
+        />
       </div>
     </>
   );
