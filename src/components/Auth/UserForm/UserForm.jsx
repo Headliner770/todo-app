@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "./UserForm.module.css";
 
 export const UserForm = () => {
   const [email, setEmail] = useState("");
@@ -6,11 +7,15 @@ export const UserForm = () => {
 
   return (
     <>
-      <div>
-        <input type="email" id="" />
+      <div className={styles.inputFields}>
+        {/* id заглушки */}
+        <label htmlFor="email">Email</label>
+        <input type="email" id="123" />
       </div>
-      <div>
-        <input type="password" id="" />
+      <div className={styles.inputFields}>
+        {/* id заглушки */}
+        <label htmlFor="password">Password</label>
+        <input type="password" id="12" />
       </div>
     </>
   );
