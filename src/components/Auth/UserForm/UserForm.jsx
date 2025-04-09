@@ -4,27 +4,72 @@ import styles from "./UserForm.module.css";
 export const UserForm = ({ modeForm }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
+  const [users, setUsers] = useState(() => {
+    const storedUsers = localStorage.getItem("users");
+    return storedUsers ? JSON.parse(storedUsers) : {};
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (modeForm === "login") {
+      if (!email || !password) {
+        setError("Поля email и password должны быть заполнены");
+        return;
+      }
+      const foundUser = Object.values(users).find(
+        (user) => user.email === email && user.password === password
+      );
+      if (foundUser) {
+        ("Вход успешен");
+        setError(null);
+      } else {
+        setError("Неверные учетные данные");
+      }
+    } else {
+      if (!email || !password) {
+        setError("Поля email и password должны быть заполнены");
+        return;
+      }
+      const newId = Object.keys(users).length
+        ? Math.max(...Object.keys(users).map(Number)) + 1
+        : 1;
+
+      setUsers((prevUsers) => {
+        const newUsers = { ...prevUsers, [newId]: { email, password } };
+        localStorage.setItem("users", JSON.stringify(newUsers));
+        return newUsers;
+      });
+      setEmail("");
+      setPassword("");
+      setError(null);
+    }
+  };
 
   return (
-    <>
+    <form onSubmit={handleSubmit}>
       <div className={styles.inputFields}>
-        {/* id заглушки */}
         <label htmlFor="email">Email</label>
-        <input type="email" id="123" value={email} onChange={() => setEmail} />
+        <input
+          type="email"
+          id="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
       </div>
       <div className={styles.inputFields}>
-        {/* id заглушки */}
         <label htmlFor="password">Password</label>
         <input
           type="password"
-          id="12"
+          id="password"
           value={password}
-          onChange={() => setPassword}
+          onChange={(e) => setPassword(e.target.value)}
         />
       </div>
+      {error && <div style={{ color: "red" }}>{error}</div>}
       <button type="submit" className="submitButton">
         {modeForm === "login" ? "Войти" : "Зарегистрироваться"}
       </button>
-    </>
+    </form>
   );
 };
