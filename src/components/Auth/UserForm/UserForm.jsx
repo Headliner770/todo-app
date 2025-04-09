@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./UserForm.module.css";
 
-export const UserForm = () => {
+export const UserForm = ({ modeForm }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -22,6 +22,9 @@ export const UserForm = () => {
           onChange={() => setPassword}
         />
       </div>
+      <button type="submit" className="submitButton">
+        {modeForm === "login" ? "Войти" : "Зарегистрироваться"}
+      </button>
     </>
   );
 };

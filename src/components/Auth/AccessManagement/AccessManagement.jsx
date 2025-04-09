@@ -28,7 +28,7 @@ export const AccessManagement = () => {
             </button>
           </div>
 
-          <UserForm />
+          <UserForm formType={activeTab} />
         </div>
       </div>
     </main>
