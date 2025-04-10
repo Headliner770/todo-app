@@ -18,10 +18,9 @@ export const UserForm = ({ modeForm }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // общая проверка заполн полей
     if (modeForm === "login") {
       if (!email || !password) {
-        setError("Поля email и password должны быть заполнены");
+        setError("Поля должны быть заполнены");
         return;
       }
 
@@ -36,7 +35,7 @@ export const UserForm = ({ modeForm }) => {
       }
     } else {
       if (!email || !password) {
-        setError("Поля email и password должны быть заполнены");
+        setError("Поля должны быть заполнены");
         return;
       }
       const newId = Object.keys(users).length
@@ -57,26 +56,28 @@ export const UserForm = ({ modeForm }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className={styles.inputFields}>
-        <label htmlFor="email">Email</label>
+      <div className={styles.inputField}>
+        <label htmlFor="email"></label>
         <input
           type="email"
           id="email"
           value={email}
+          placeholder="Введите почту"
           onChange={(e) => setEmail(e.target.value)}
         />
       </div>
-      <div className={styles.inputFields}>
-        <label htmlFor="password">Password</label>
+      <div className={styles.inputField}>
+        <label htmlFor="password"></label>
         <input
           type="password"
           id="password"
           value={password}
+          placeholder="Введите пароль"
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
-      {error && <div style={{ color: "red" }}>{error}</div>}
-      <button type="submit" className="submitButton">
+      {error && <div className={styles.error}>{error}</div>}
+      <button type="submit" className={styles.submitButton}>
         {modeForm === "login" ? "Войти" : "Зарегистрироваться"}
       </button>
     </form>

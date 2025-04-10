@@ -3,7 +3,7 @@ import { UserForm } from "../UserForm/UserForm.jsx";
 import styles from "./AccessManagement.module.css";
 
 export const AccessManagement = () => {
-  const [activeTab, setActiveTab] = useState();
+  const [activeTab, setActiveTab] = useState("login");
 
   const handleClick = (tab) => {
     setActiveTab(tab);
@@ -32,7 +32,7 @@ export const AccessManagement = () => {
             </button>
           </div>
 
-          <UserForm formType={activeTab} />
+          <UserForm modeForm={activeTab} />
         </div>
       </div>
     </main>

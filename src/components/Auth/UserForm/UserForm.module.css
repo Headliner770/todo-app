@@ -1,0 +1,40 @@
+.inputField {
+  margin-bottom: 15px;
+}
+
+.inputField label {
+  display: block;
+  margin-bottom: 15px;
+  color: aqua;
+}
+
+.inputField input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: #d9d9d9;
+  border: none;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+}
+
+.submitButton {
+  display: block;
+  width: 50%;
+  margin: 0 auto;
+  padding: 12px;
+  color: #ffffff;
+  background-color: #ba52ff;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.submitButton:hover {
+  background-color: #c977ff;
+}
