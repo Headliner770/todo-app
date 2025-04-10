@@ -15,13 +15,17 @@ export const AccessManagement = () => {
         <div className={styles.windows}>
           <div className={styles.tabs}>
             <button
-              className={styles.button}
+              className={`${styles.button} ${
+                activeTab === "login" ? styles.active : ""
+              } `}
               onClick={() => handleClick("login")}
             >
               <h2>Вход</h2>
             </button>
             <button
-              className={styles.button}
+              className={`${styles.button} ${
+                activeTab === "registration" ? styles.active : ""
+              } `}
               onClick={() => handleClick("registration")}
             >
               <h2>Регистрация</h2>

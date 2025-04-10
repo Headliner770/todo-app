@@ -7,21 +7,29 @@ export const UserForm = ({ modeForm }) => {
   const [error, setError] = useState(null);
   const [users, setUsers] = useState(() => {
     const storedUsers = localStorage.getItem("users");
-    return storedUsers ? JSON.parse(storedUsers) : {};
+    try {
+      return storedUsers ? JSON.parse(storedUsers) : {};
+    } catch (e) {
+      console.error("Ошибка разбора JSON из localStorage:", e);
+      return {};
+    }
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // общая проверка заполн полей
     if (modeForm === "login") {
       if (!email || !password) {
         setError("Поля email и password должны быть заполнены");
         return;
       }
+
       const foundUser = Object.values(users).find(
         (user) => user.email === email && user.password === password
       );
       if (foundUser) {
-        ("Вход успешен");
+        console.log("Вход успешен");
         setError(null);
       } else {
         setError("Неверные учетные данные");
@@ -43,6 +51,7 @@ export const UserForm = ({ modeForm }) => {
       setEmail("");
       setPassword("");
       setError(null);
+      // перенаправление после регистр
     }
   };
 
