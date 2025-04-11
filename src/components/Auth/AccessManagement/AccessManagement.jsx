@@ -8,27 +8,27 @@ export const AccessManagement = () => {
   const handleClick = (tab) => {
     setActiveTab(tab);
   };
-
+  
   return (
     <main className={styles.main}>
       <div className={styles.block}>
         <div className={styles.windows}>
           <div className={styles.tabs}>
             <button
-              className={`${styles.button} ${
+              className={`${styles.logButton} ${
                 activeTab === "login" ? styles.active : ""
               } `}
               onClick={() => handleClick("login")}
             >
-              <h2>Вход</h2>
+              Вход
             </button>
             <button
-              className={`${styles.button} ${
+              className={`${styles.logButton} ${
                 activeTab === "registration" ? styles.active : ""
               } `}
               onClick={() => handleClick("registration")}
             >
-              <h2>Регистрация</h2>
+              Регистрация
             </button>
           </div>
           <UserForm modeForm={activeTab} />

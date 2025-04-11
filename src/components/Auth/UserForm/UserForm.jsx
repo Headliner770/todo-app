@@ -50,14 +50,12 @@ export const UserForm = ({ modeForm }) => {
       setEmail("");
       setPassword("");
       setError(null);
-      // перенапр после регистр
     }
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <div className={styles.inputField}>
-        <label htmlFor="email"></label>
         <input
           type="email"
           id="email"
@@ -67,7 +65,6 @@ export const UserForm = ({ modeForm }) => {
         />
       </div>
       <div className={styles.inputField}>
-        <label htmlFor="password"></label>
         <input
           type="password"
           id="password"
