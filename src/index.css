@@ -51,14 +51,18 @@ body {
   --header-text-color: #000000;
   --main-background-color: #f0f0f0;
   --main-text-color: #000000;
+  --text-color: #000000;
+  --window-background-color: #ffffff;
   background-color: var(--main-background-color);
   color: var(--main-text-color);
 }
 
 body.dark {
   font-family: "Inter";
-  --header-background-color: rgba(0, 0, 0, 0.85);
+  --header-background-color: rgba(0, 0, 0, 0.65);
   --header-text-color: #ffffff;
-  --main-background-color: rgba(0, 0, 0, 0.85);
+  --main-background-color: rgba(0, 0, 0, 0.65);
   --main-text-color: #ffffff;
+  --text-color: #ffffff;
+  --window-background-color: rgba(0, 0, 0, 0.65);
 }

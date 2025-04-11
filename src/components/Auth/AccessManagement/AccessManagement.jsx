@@ -31,7 +31,6 @@ export const AccessManagement = () => {
               <h2>Регистрация</h2>
             </button>
           </div>
-
           <UserForm modeForm={activeTab} />
         </div>
       </div>

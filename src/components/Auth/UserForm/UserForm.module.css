@@ -5,7 +5,7 @@
 .inputField label {
   display: block;
   margin-bottom: 15px;
-  color: aqua;
+  color: var(--header-text-color);
 }
 
 .inputField input {
@@ -13,8 +13,14 @@
   padding: 10px;
   border-radius: 10px;
   font-size: 16px;
-  background-color: #d9d9d9;
+  background-color: #d0d0d0;
   border: none;
+  color: var(--header-text-color);
+}
+
+body.dark .inputField input {
+  background-color: #333;
+  color: #ffffff;
 }
 
 .error {
@@ -27,7 +33,7 @@
 
 .submitButton {
   display: block;
-  width: 50%;
+  width: 45%;
   margin: 30px auto 0;
   padding: 12px;
   color: #ffffff;

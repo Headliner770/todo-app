@@ -50,7 +50,7 @@ export const UserForm = ({ modeForm }) => {
       setEmail("");
       setPassword("");
       setError(null);
-      // перенаправление после регистр
+      // перенапр после регистр
     }
   };
 
