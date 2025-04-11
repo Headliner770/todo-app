@@ -1,0 +1,24 @@
+.mainTasks {
+  display: flex;
+  height: 100%;
+}
+
+.optionsTasks {
+  width: 300px;
+  background-color: aquamarine;
+}
+
+.optionsTasks ul {
+  list-style: none;
+  padding: 0;
+}
+
+.optionsTasks li {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+}
