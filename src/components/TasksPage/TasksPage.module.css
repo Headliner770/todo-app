@@ -5,7 +5,8 @@
 
 .sidePanel {
   width: 300px;
-  background-color: aquamarine;
+  background-color: var(--side-panel-background-color);
+  padding: 30px;
 }
 
 .sidePanel ul {
@@ -16,8 +17,25 @@
 .sidePanel li {
   margin-bottom: 10px;
   cursor: pointer;
+  color: var(--text-color);
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.sidePanel li a {
+  text-decoration: none;
+}
+
+.sidePanel li:active {
+  font-weight: bold;
+  background-color: var(--active-background-color);
+}
+
+.sidePanel li:hover {
+  background-color: var(--hover-background-color);
 }
 
 .content {
   padding: 30px;
+  flex-grow: 1;
 }

@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../Providers/AuthProvider.jsx";
 import styles from "./UserForm.module.css";
 
 export const UserForm = ({ modeForm }) => {
@@ -15,6 +17,9 @@ export const UserForm = ({ modeForm }) => {
     }
   });
 
+  const navigate = useNavigate();
+  const { login } = useAuth();
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -30,6 +35,8 @@ export const UserForm = ({ modeForm }) => {
       if (foundUser) {
         console.log("Вход успешен");
         setError(null);
+        login(foundUser);
+        navigate("/tasks");
       } else {
         setError("Неверные учетные данные");
       }

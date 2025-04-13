@@ -8,3 +8,22 @@
   background-color: var(--header-background-color);
   color: var(--header-text-color);
 }
+
+.actionButtons {
+  display: flex;
+  gap: 20px;
+}
+
+.logoutButton {
+  background-color: rgb(252, 111, 144);
+  color: black;
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.logoutButton:hover {
+  background-color: rgb(250, 179, 196);
+}

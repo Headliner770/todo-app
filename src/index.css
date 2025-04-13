@@ -53,6 +53,7 @@ body {
   --main-text-color: #000;
   --text-color: #000;
   --window-background-color: #fff;
+  --side-panel-background-color: #f0f0f0;
 }
 
 body.dark {
@@ -63,4 +64,5 @@ body.dark {
   --main-text-color: #fff;
   --text-color: #fff;
   --window-background-color: rgba(0, 0, 0, 0.65);
+  --side-panel-background-color: rgba(0, 0, 0, 0.65);
 }
