@@ -7,11 +7,11 @@ import { AuthProvider } from "./components/Providers/AuthProvider.jsx";
 export default function App() {
   return (
     <ThemeProvider>
-     
+      <AuthProvider>
         <Header />
         <AccessManagement />
         <TasksPage />
-      
+      </AuthProvider>
     </ThemeProvider>
   );
 }

@@ -3,22 +3,21 @@
   height: 100%;
 }
 
-.optionsTasks {
+.sidePanel {
   width: 300px;
   background-color: aquamarine;
 }
 
-.optionsTasks ul {
+.sidePanel ul {
   list-style: none;
   padding: 0;
 }
 
-.optionsTasks li {
+.sidePanel li {
   margin-bottom: 10px;
   cursor: pointer;
 }
 
 .content {
-  flex: 1;
-  padding: 20px;
+  padding: 30px;
 }
