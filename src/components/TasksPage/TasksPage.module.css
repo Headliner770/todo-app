@@ -1,6 +1,8 @@
 .mainTasks {
   display: flex;
   height: 100%;
+  background-color: var(--header-background-color);
+  color: var(--header-text-color);
 }
 
 .sidePanel {
@@ -15,11 +17,14 @@
 }
 
 .sidePanel li {
+  font-size: 20px;
+  font-weight: 700;
   margin-bottom: 10px;
   cursor: pointer;
   color: var(--text-color);
   padding: 10px;
   border-radius: 20px;
+  border: 2px;
 }
 
 .sidePanel li a {
