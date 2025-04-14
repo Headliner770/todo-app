@@ -1,21 +1,14 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../Providers/AuthProvider.jsx";
+import { useLocalStorage } from "../../../hooks/useLocalStorage.jsx";
 import styles from "./UserForm.module.css";
 
 export const UserForm = ({ modeForm }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
-  const [users, setUsers] = useState(() => {
-    const storedUsers = localStorage.getItem("users");
-    try {
-      return storedUsers ? JSON.parse(storedUsers) : {};
-    } catch (e) {
-      console.error("Ошибка разбора JSON из localStorage:", e);
-      return {};
-    }
-  });
+  const [users, setUsers] = useLocalStorage("users", []);
 
   const navigate = useNavigate();
   const { login } = useAuth();
@@ -29,7 +22,8 @@ export const UserForm = ({ modeForm }) => {
         return;
       }
 
-      const foundUser = Object.values(users).find(
+      console.log(users);
+      const foundUser = users.find(
         (user) => user.email === email && user.password === password
       );
       if (foundUser) {
@@ -45,13 +39,9 @@ export const UserForm = ({ modeForm }) => {
         setError("Поля должны быть заполнены");
         return;
       }
-      // const newId = Object.keys(users).length
-      //   ? Math.max(...Object.keys(users).map(Number)) + 1
-      //   : 1;
 
       setUsers((prevUsers) => {
         const newUsers = [...prevUsers, { email, password }];
-        localStorage.setItem("users", JSON.stringify(newUsers));
         return newUsers;
       });
       setEmail("");

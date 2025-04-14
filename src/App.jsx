@@ -17,7 +17,8 @@ export default function App() {
         <AuthProvider>
           <AppProvider>
             <Routes>
-              <Route path="/" element={<AccessManagement />} />
+              <Route path="/" element={<Navigate to={"/login"} />} />
+              <Route path="/login" element={<AccessManagement />} />
               <Route
                 path="/tasks/*"
                 element={
