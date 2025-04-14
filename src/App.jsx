@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import { Header } from "./components/Header/Header.jsx";
 import { ThemeProvider } from "./components/Providers/ThemeProvider.jsx";
 import { AccessManagement } from "./components/Auth/AccessManagement/AccessManagement.jsx";
 import { TasksPage } from "./components/TasksPage/TasksPage.jsx";
+import { AppProvider } from "./components/Providers/AppProvider.jsx";
 import { AuthProvider, useAuth } from "./components/Providers/AuthProvider.jsx";
 
 const PrivateRoute = ({ children }) => {
@@ -15,18 +15,19 @@ export default function App() {
     <BrowserRouter>
       <ThemeProvider>
         <AuthProvider>
-          <Header />
-          <Routes>
-            <Route path="/" element={<AccessManagement />} />
-            <Route
-              path="/tasks/*"
-              element={
-                <PrivateRoute>
-                  <TasksPage />
-                </PrivateRoute>
-              }
-            />
-          </Routes>
+          <AppProvider>
+            <Routes>
+              <Route path="/" element={<AccessManagement />} />
+              <Route
+                path="/tasks/*"
+                element={
+                  <PrivateRoute>
+                    <TasksPage />
+                  </PrivateRoute>
+                }
+              />
+            </Routes>
+          </AppProvider>
         </AuthProvider>
       </ThemeProvider>
     </BrowserRouter>

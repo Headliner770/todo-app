@@ -45,12 +45,12 @@ export const UserForm = ({ modeForm }) => {
         setError("Поля должны быть заполнены");
         return;
       }
-      const newId = Object.keys(users).length
-        ? Math.max(...Object.keys(users).map(Number)) + 1
-        : 1;
+      // const newId = Object.keys(users).length
+      //   ? Math.max(...Object.keys(users).map(Number)) + 1
+      //   : 1;
 
       setUsers((prevUsers) => {
-        const newUsers = { ...prevUsers, [newId]: { email, password } };
+        const newUsers = [...prevUsers, { email, password }];
         localStorage.setItem("users", JSON.stringify(newUsers));
         return newUsers;
       });

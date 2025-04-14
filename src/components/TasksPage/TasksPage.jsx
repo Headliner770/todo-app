@@ -11,7 +11,6 @@ export const TasksPage = () => {
   const location = useLocation();
   return (
     <main className={styles.mainTasks}>
-      {/* <button className={styles.button}></button> */}
       <div className={styles.sidePanel}>
         <ul>
           <li
