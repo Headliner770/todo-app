@@ -1,0 +1,49 @@
+.inputField {
+  margin-bottom: 15px;
+}
+
+.inputField label {
+  display: block;
+  margin-bottom: 15px;
+  color: var(--header-text-color);
+}
+
+.inputField input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: #d0d0d0;
+  border: none;
+  color: var(--header-text-color);
+}
+
+body.dark .inputField input {
+  background-color: #333;
+  color: #ffffff;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  position: absolute;
+  min-height: 20px;
+  margin-top: -9px;
+}
+
+.submitButton {
+  display: block;
+  width: 45%;
+  margin: 30px auto 0;
+  padding: 12px;
+  color: #ffffff;
+  background-color: #ba52ff;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.submitButton:hover {
+  background-color: #c977ff;
+}

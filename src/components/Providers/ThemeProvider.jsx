@@ -1,5 +1,6 @@
 import React, { createContext, useEffect } from "react";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
+
 export const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
