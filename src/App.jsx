@@ -4,6 +4,8 @@ import { AccessManagement } from "./components/Auth/AccessManagement/AccessManag
 import { TasksPage } from "./components/TasksPage/TasksPage.jsx";
 import { AppProvider } from "./components/Providers/AppProvider.jsx";
 import { AuthProvider, useAuth } from "./components/Providers/AuthProvider.jsx";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const PrivateRoute = ({ children }) => {
   const { user } = useAuth();
@@ -28,6 +30,17 @@ export default function App() {
                 }
               />
             </Routes>
+            <ToastContainer
+              position="top-right"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+            />
           </AppProvider>
         </AuthProvider>
       </ThemeProvider>

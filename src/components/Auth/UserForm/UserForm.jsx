@@ -2,12 +2,13 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../Providers/AuthProvider.jsx";
 import { useLocalStorage } from "../../../hooks/useLocalStorage.jsx";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import styles from "./UserForm.module.css";
 
 export const UserForm = ({ modeForm }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
   const [users, setUsers] = useLocalStorage("users", []);
 
   const navigate = useNavigate();
@@ -18,25 +19,23 @@ export const UserForm = ({ modeForm }) => {
 
     if (modeForm === "login") {
       if (!email || !password) {
-        setError("Поля должны быть заполнены");
+        toast.error("Поля должны быть заполнены");
         return;
       }
 
-      console.log(users);
       const foundUser = users.find(
         (user) => user.email === email && user.password === password
       );
       if (foundUser) {
-        console.log("Вход успешен");
-        setError(null);
+        toast.success("Вход успешен");
         login(foundUser);
         navigate("/tasks");
       } else {
-        setError("Неверные учетные данные");
+        toast.error("Неверные учетные данные");
       }
     } else {
       if (!email || !password) {
-        setError("Поля должны быть заполнены");
+        toast.error("Поля должны быть заполнены");
         return;
       }
 
@@ -46,7 +45,7 @@ export const UserForm = ({ modeForm }) => {
       });
       setEmail("");
       setPassword("");
-      setError(null);
+      toast.success("Регистрация прошла успешно");
     }
   };
 
@@ -70,7 +69,6 @@ export const UserForm = ({ modeForm }) => {
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
-      {error && <div className={styles.error}>{error}</div>}
       <button type="submit" className={styles.submitButton}>
         {modeForm === "login" ? "Войти" : "Зарегистрироваться"}
       </button>
