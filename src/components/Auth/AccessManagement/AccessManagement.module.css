@@ -19,6 +19,7 @@
   width: 500px;
   border-radius: 20px;
   color: var(--text-color);
+  margin-top: -300px;
 }
 
 .tabs {

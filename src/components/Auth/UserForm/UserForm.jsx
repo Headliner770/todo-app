@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../../hooks/useAuth.jsx";
 import { useLocalStorage } from "../../../hooks/useLocalStorage.jsx";
@@ -11,6 +11,11 @@ export const UserForm = ({ modeForm }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [users, setUsers] = useLocalStorage("users", []);
+
+  useEffect(() => {
+    setEmail("");
+    setPassword("");
+  }, [modeForm]);
 
   const navigate = useNavigate();
   const { login } = useAuth();

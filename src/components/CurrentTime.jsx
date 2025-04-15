@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import styles from "./Header/Header.module.css";
 
 export function CurrentTime() {
   const [now, setNow] = useState(new Date());
@@ -11,5 +12,5 @@ export function CurrentTime() {
     };
   }, []);
 
-  return <span>{now.toLocaleTimeString()}</span>;
+  return <span className={styles.currentTime}>{now.toLocaleTimeString()}</span>;
 }

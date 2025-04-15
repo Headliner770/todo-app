@@ -23,7 +23,9 @@ export function Header() {
   return (
     <header className={styles.header}>
       <h2>To Do App</h2>
-      <CurrentTime />
+      <div className={styles.timeContainer}>
+        <CurrentTime />
+      </div>
       <div className={styles.actionButtons}>
         {user && (
           <button onClick={handleLogout} className={styles.logoutButton}>
