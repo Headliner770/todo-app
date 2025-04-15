@@ -27,15 +27,6 @@
   border: 2px;
 }
 
-.sidePanel li a {
-  text-decoration: none;
-}
-
-.sidePanel li:active {
-  font-weight: bold;
-  background-color: var(--active-background-color);
-}
-
 .sidePanel li:hover {
   background-color: var(--hover-background-color);
 }
@@ -43,4 +34,15 @@
 .content {
   padding: 30px;
   flex-grow: 1;
+}
+
+.sidePanel li :any-link {
+  color: var(--text-color);
+  text-decoration: none;
+  display: block;
+}
+
+.sidePanel li .active {
+  font-weight: bold;
+  background-color: var(--active-background-color);
 }

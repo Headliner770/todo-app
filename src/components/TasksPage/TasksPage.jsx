@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, Link, useLocation } from "react-router-dom";
+import { Routes, Route, NavLink } from "react-router-dom";
 import styles from "./TasksPage.module.css";
 
 const AllTasks = () => <h2>Все задачи</h2>;
@@ -8,43 +8,50 @@ const CompletedTasks = () => <h2>Выполненные</h2>;
 const DeleteTasks = () => <h2>Удаленные</h2>;
 
 export const TasksPage = () => {
-  const location = useLocation();
   return (
     <main className={styles.mainTasks}>
       <div className={styles.sidePanel}>
         <ul>
-          <li
-            className={location.pathname === "tasks/all" ? styles.active : ""}
-          >
-            <Link to="/tasks/all">Все задачи</Link>
+          <li>
+            <NavLink
+              to="/tasks/all"
+              className={({ isActive }) => (isActive ? styles.active : "")}
+            >
+              Все задачи
+            </NavLink>
           </li>
-          <li
-            className={location.pathname === "tasks/today" ? styles.today : ""}
-          >
-            <Link to="/tasks/today">Задачи на сегодня</Link>
+          <li>
+            <NavLink
+              to="/tasks/today"
+              className={({ isActive }) => (isActive ? styles.active : "")}
+            >
+              Задачи на сегодня
+            </NavLink>
           </li>
-          <li
-            className={
-              location.pathname === "tasks/completed" ? styles.active : ""
-            }
-          >
-            <Link to="/tasks/completed">Выполненные</Link>
+          <li>
+            <NavLink
+              to="/tasks/completed"
+              className={({ isActive }) => (isActive ? styles.active : "")}
+            >
+              Выполненные
+            </NavLink>
           </li>
-          <li
-            className={
-              location.pathname === "tasks/deleted" ? styles.active : ""
-            }
-          >
-            <Link to="/tasks/deleted">Удаленные</Link>
+          <li>
+            <NavLink
+              to="/tasks/deleted"
+              className={({ isActive }) => (isActive ? styles.active : "")}
+            >
+              Удаленные
+            </NavLink>
           </li>
         </ul>
       </div>
       <div className={styles.content}>
         <Routes>
-          <Route path="/" element={<AllTasks />} />
-          <Route path="/today" element={<TodayTasks />} />
-          <Route path="/completed" element={<CompletedTasks />} />
-          <Route path="/deleted" element={<DeleteTasks />} />
+          <Route path="tasks/all" element={<AllTasks />} />
+          <Route path="tasks/today" element={<TodayTasks />} />
+          <Route path="tasks/completed" element={<CompletedTasks />} />
+          <Route path="tasks/deleted" element={<DeleteTasks />} />
         </Routes>
         <h1>Будущие задачи</h1>
       </div>

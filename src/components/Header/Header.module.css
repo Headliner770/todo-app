@@ -27,3 +27,9 @@
 .logoutButton:hover {
   background-color: rgb(250, 179, 196);
 }
+
+.themeButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}

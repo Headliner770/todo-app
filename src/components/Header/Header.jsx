@@ -30,7 +30,7 @@ export function Header() {
             Выйти
           </button>
         )}
-        <button onClick={changeTheme}>
+        <button onClick={changeTheme} className={styles.themeButton}>
           <div>
             {theme === "light" ? (
               <Sun color="black" size={40} />
