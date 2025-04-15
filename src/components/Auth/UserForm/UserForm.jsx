@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../Providers/AuthProvider.jsx";
+import { useAuth } from "../../../hooks/useAuth.jsx";
 import { useLocalStorage } from "../../../hooks/useLocalStorage.jsx";
+import { validEmail } from "./validEmail.jsx";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styles from "./UserForm.module.css";
@@ -23,6 +24,11 @@ export const UserForm = ({ modeForm }) => {
         return;
       }
 
+      if (!validEmail(email)) {
+        toast.error("Неверный формат электронной почты");
+        return;
+      }
+
       const foundUser = users.find(
         (user) => user.email === email && user.password === password
       );
@@ -36,6 +42,11 @@ export const UserForm = ({ modeForm }) => {
     } else {
       if (!email || !password) {
         toast.error("Поля должны быть заполнены");
+        return;
+      }
+
+      if (!validEmail(email)) {
+        toast.error("Неверный формат электронной почты");
         return;
       }
 
@@ -53,7 +64,7 @@ export const UserForm = ({ modeForm }) => {
     <form onSubmit={handleSubmit}>
       <div className={styles.inputField}>
         <input
-          type="email"
+          type="text"
           id="email"
           value={email}
           placeholder="Введите почту"

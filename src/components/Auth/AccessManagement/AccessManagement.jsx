@@ -8,7 +8,7 @@ export const AccessManagement = () => {
   const handleClick = (tab) => {
     setActiveTab(tab);
   };
-  
+
   return (
     <main className={styles.main}>
       <div className={styles.block}>

@@ -3,7 +3,8 @@ import { ThemeProvider } from "./components/Providers/ThemeProvider.jsx";
 import { AccessManagement } from "./components/Auth/AccessManagement/AccessManagement.jsx";
 import { TasksPage } from "./components/TasksPage/TasksPage.jsx";
 import { AppProvider } from "./components/Providers/AppProvider.jsx";
-import { AuthProvider, useAuth } from "./components/Providers/AuthProvider.jsx";
+import { AuthProvider } from "./components/Providers/AuthProvider.jsx";
+import { useAuth } from "./hooks/useAuth.jsx";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { ThemeContext } from "../Providers/ThemeProvider.jsx";
 import { CurrentTime } from "../CurrentTime.jsx";
-import { useAuth } from "../Providers/AuthProvider.jsx";
+import { useAuth } from "../../hooks/useAuth.jsx";
 import { useNavigate } from "react-router-dom";
 import { Sun, Moon } from "lucide-react";
 import styles from "./Header.module.css";
