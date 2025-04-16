@@ -17,21 +17,21 @@ export const AccessManagement = () => {
             <button
               className={`${styles.logButton} ${
                 activeTab === "login" ? styles.active : ""
-              } `}
+              }`}
               onClick={() => handleClick("login")}
             >
               Вход
             </button>
             <button
               className={`${styles.logButton} ${
-                activeTab === "registration" ? styles.active : ""
-              } `}
-              onClick={() => handleClick("registration")}
+                activeTab === "register" ? styles.active : ""
+              }`}
+              onClick={() => handleClick("register")}
             >
               Регистрация
             </button>
           </div>
-          <UserForm modeForm={activeTab} />
+          <UserForm key={activeTab} modeForm={activeTab} />
         </div>
       </div>
     </main>

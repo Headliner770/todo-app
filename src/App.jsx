@@ -1,9 +1,8 @@
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import { ThemeProvider } from "./components/Providers/ThemeProvider.jsx";
+import { Header } from "./components/Header/Header.jsx";
 import { AccessManagement } from "./components/Auth/AccessManagement/AccessManagement.jsx";
 import { TasksPage } from "./components/TasksPage/TasksPage.jsx";
 import { AppProvider } from "./components/Providers/AppProvider.jsx";
-import { AuthProvider } from "./components/Providers/AuthProvider.jsx";
 import { useAuth } from "./hooks/useAuth.jsx";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -22,42 +21,39 @@ const PrivateRoute = ({ children }) => {
 export default function App() {
   return (
     <BrowserRouter>
-      <ThemeProvider>
-        <AuthProvider>
-          <AppProvider>
-            <Routes>
-              <Route path="/" element={<Navigate to={"/login"} />} />
-              <Route path="/login" element={<AccessManagement />} />
-              <Route
-                path="/tasks"
-                element={
-                  <PrivateRoute>
-                    <TasksPage />
-                  </PrivateRoute>
-                }
-              >
-                <Route index element={<AllTasks />} />
-                <Route path="all" element={<AllTasks />} />
-                <Route path="today" element={<TodayTasks />} />
-                <Route path="completed" element={<CompletedTasks />} />
-                <Route path="deleted" element={<DeleteTasks />} />
-              </Route>
-              <Route path="*" element={<NotFoundPage />} />
-            </Routes>
-            <ToastContainer
-              position="top-right"
-              autoClose={3000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-            />
-          </AppProvider>
-        </AuthProvider>
-      </ThemeProvider>
+      <AppProvider>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Navigate to={"/login"} />} />
+          <Route path="/login" element={<AccessManagement />} />
+          <Route
+            path="/tasks"
+            element={
+              <PrivateRoute>
+                <TasksPage />
+              </PrivateRoute>
+            }
+          >
+            <Route index element={<AllTasks />} />
+            <Route path="all" element={<AllTasks />} />
+            <Route path="today" element={<TodayTasks />} />
+            <Route path="completed" element={<CompletedTasks />} />
+            <Route path="deleted" element={<DeleteTasks />} />
+          </Route>
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+      </AppProvider>
     </BrowserRouter>
   );
 }

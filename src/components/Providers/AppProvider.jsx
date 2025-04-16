@@ -1,11 +1,13 @@
 import React from "react";
-import { Header } from "../Header/Header.jsx";
+import { AuthProvider } from "./AuthProvider";
+import { ThemeProvider } from "./ThemeProvider";
 
 export const AppProvider = ({ children }) => {
   return (
     <>
-      <Header />
-      {children}
+      <ThemeProvider>
+        <AuthProvider>{children}</AuthProvider>
+      </ThemeProvider>
     </>
   );
 };
