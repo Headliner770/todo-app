@@ -48,10 +48,10 @@ export const TasksPage = () => {
       </div>
       <div className={styles.content}>
         <Routes>
-          <Route path="tasks/all" element={<AllTasks />} />
-          <Route path="tasks/today" element={<TodayTasks />} />
-          <Route path="tasks/completed" element={<CompletedTasks />} />
-          <Route path="tasks/deleted" element={<DeleteTasks />} />
+          <Route path="all" element={<AllTasks />} />
+          <Route path="today" element={<TodayTasks />} />
+          <Route path="completed" element={<CompletedTasks />} />
+          <Route path="deleted" element={<DeleteTasks />} />
         </Routes>
         <h1>Будущие задачи</h1>
       </div>

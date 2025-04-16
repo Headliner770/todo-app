@@ -13,6 +13,8 @@ const PrivateRoute = ({ children }) => {
   return user ? children : <Navigate to="/" />;
 };
 
+const NotFoundPage = () => <h2>Страница не найдена</h2>;
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -30,6 +32,7 @@ export default function App() {
                   </PrivateRoute>
                 }
               />
+              <Route path="*" element={<NotFoundPage />} />
             </Routes>
             <ToastContainer
               position="top-right"

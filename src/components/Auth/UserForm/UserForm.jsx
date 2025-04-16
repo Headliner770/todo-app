@@ -59,9 +59,12 @@ export const UserForm = ({ modeForm }) => {
         const newUsers = [...prevUsers, { email, password }];
         return newUsers;
       });
+      login({ email, password });
+
       setEmail("");
       setPassword("");
       toast.success("Регистрация прошла успешно");
+      navigate("/tasks");
     }
   };
 
