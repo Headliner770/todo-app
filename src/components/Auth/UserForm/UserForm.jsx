@@ -28,7 +28,6 @@ export const UserForm = ({ modeForm }) => {
         toast.error("Поля должны быть заполнены");
         return;
       }
-
       if (!validEmail(email)) {
         toast.error("Неверный формат электронной почты");
         return;
