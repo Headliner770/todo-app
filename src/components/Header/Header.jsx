@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { ThemeContext } from "../Providers/ThemeProvider.jsx";
 import { CurrentTime } from "../CurrentTime.jsx";
 import { useAuth } from "../../hooks/useAuth.jsx";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Sun, Moon } from "lucide-react";
 import styles from "./Header.module.css";
 
@@ -22,7 +22,9 @@ export function Header() {
 
   return (
     <header className={styles.header}>
-      <h2>To Do App</h2>
+      <Link to={user ? "/tasks" : "/login"}>
+        <h2>To Do App</h2>
+      </Link>
       <CurrentTime />
       <div className={styles.actionButtons}>
         {user && (
@@ -35,7 +37,7 @@ export function Header() {
             {theme === "light" ? (
               <Sun color="black" size={40} />
             ) : (
-              <Moon color="black" size={40} />
+              <Moon color="white" size={40} />
             )}
           </div>
         </button>

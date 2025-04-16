@@ -3,12 +3,13 @@
   height: 100%;
   background-color: var(--header-background-color);
   color: var(--header-text-color);
+  padding: 0 12px;
 }
 
 .sidePanel {
   width: 300px;
   background-color: var(--side-panel-background-color);
-  padding: 30px;
+  border-right: 1px solid #aaaaaa;
 }
 
 .sidePanel ul {
@@ -22,9 +23,9 @@
   margin-bottom: 10px;
   cursor: pointer;
   color: var(--text-color);
-  padding: 10px;
-  border-radius: 20px;
-  border: 2px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 2px solid transparent;
 }
 
 .sidePanel li:hover {
@@ -43,6 +44,11 @@
 }
 
 .sidePanel li .active {
-  font-weight: bold;
   background-color: var(--active-background-color);
+  color: var(--active-text-color);
+  border-radius: 10px;
+}
+
+.sidePanel li:not(.active):hover {
+  background-color: var(--hover-background-color);
 }

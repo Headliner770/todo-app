@@ -4,10 +4,15 @@
   padding: 0 4rem;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #aaaaaa;
   background-color: var(--header-background-color);
   color: var(--header-text-color);
   position: relative;
+}
+
+.header a {
+  text-decoration: none;
+  color: var(--header-text-color);
 }
 
 .actionButtons {
@@ -17,7 +22,7 @@
 
 .logoutButton {
   background-color: rgb(252, 111, 144);
-  color: black;
+  color: var(--header-text-color);
   border-radius: 5px;
   border: none;
   padding: 10px;
