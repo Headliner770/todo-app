@@ -8,9 +8,10 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const AllTasks = () => <h2>Все задачи</h2>;
-const TodayTasks = () => <h2>Задачи на сегодня</h2>;
+
 const CompletedTasks = () => <h2>Выполненные</h2>;
 const DeleteTasks = () => <h2>Удаленные</h2>;
+const Categories = () => <h2>Категории</h2>;
 const NotFoundPage = () => <h2>Страница не найдена</h2>;
 
 const PrivateRoute = ({ children }) => {
@@ -36,9 +37,9 @@ export default function App() {
           >
             <Route index element={<AllTasks />} />
             <Route path="all" element={<AllTasks />} />
-            <Route path="today" element={<TodayTasks />} />
             <Route path="completed" element={<CompletedTasks />} />
             <Route path="deleted" element={<DeleteTasks />} />
+            <Route path="categories" element={<Categories />} />
           </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

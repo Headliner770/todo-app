@@ -17,14 +17,6 @@ export const TasksPage = () => {
           </li>
           <li>
             <NavLink
-              to="today"
-              className={({ isActive }) => (isActive ? styles.active : "")}
-            >
-              Задачи на сегодня
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
               to="completed"
               className={({ isActive }) => (isActive ? styles.active : "")}
             >
@@ -37,6 +29,14 @@ export const TasksPage = () => {
               className={({ isActive }) => (isActive ? styles.active : "")}
             >
               Удаленные
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="Categories"
+              className={({ isActive }) => (isActive ? styles.active : "")}
+            >
+              Категории
             </NavLink>
           </li>
         </ul>
