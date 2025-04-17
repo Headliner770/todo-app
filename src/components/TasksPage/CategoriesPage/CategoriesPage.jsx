@@ -6,9 +6,9 @@ import styles from "./CategoriesPage.module.css";
 export const CategoriesPage = () => {
   const { categories, addCategory, editCategory, deleteCategory } =
     useCategories();
-  const [newCategory, setNewCategory] = useState();
-  const [editingId, setEditingId] = useState();
-  const [editingName, setEditingName] = useState();
+  const [newCategory, setNewCategory] = useState("");
+  const [editingId, setEditingId] = useState(null);
+  const [editingName, setEditingName] = useState("");
 
   const handlerAddCategory = (e) => {
     e.preventDefault();
@@ -40,7 +40,7 @@ export const CategoriesPage = () => {
             type="text"
             value={newCategory}
             onChange={(e) => setNewCategory(e.target.value)}
-            placeholder="Введите почту"
+            placeholder="Введите категорию"
           />
           <button type="submit">Добавить</button>
         </form>
@@ -64,9 +64,9 @@ export const CategoriesPage = () => {
                 </div>
               </div>
             ) : (
-              <div className={styles.categotyContent}>
+              <div className={styles.categoryContent}>
                 <span>{category.name}</span>
-                <div className={styles.categotyButtons}>
+                <div className={styles.categoryButtons}>
                   <button
                     onClick={() => startEditing(category)}
                     aria-label={`Редактировать категорию ${category.name}`}
