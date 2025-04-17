@@ -9,7 +9,7 @@
 }
 
 .inputField input {
-  width: 100%;
+  width: 96%;
   padding: 10px;
   border-radius: 10px;
   font-size: 16px;
@@ -18,25 +18,12 @@
   color: var(--header-text-color);
 }
 
-body.dark .inputField input {
-  background-color: #333;
-  color: #ffffff;
-}
-
-.error {
-  color: red;
-  font-size: 14px;
-  position: absolute;
-  min-height: 20px;
-  margin-top: -9px;
-}
-
 .submitButton {
   display: block;
   width: 45%;
   margin: 30px auto 0;
   padding: 12px;
-  color: #ffffff;
+  color: #fff;
   background-color: #ba52ff;
   border: none;
   border-radius: 10px;

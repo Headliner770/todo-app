@@ -1,82 +1,89 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../../hooks/useAuth.jsx";
+import { useLocalStorage } from "../../../hooks/useLocalStorage.jsx";
+import { validEmail } from "./validEmail.jsx";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import styles from "./UserForm.module.css";
 
 export const UserForm = ({ modeForm }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
-  const [users, setUsers] = useState(() => {
-    const storedUsers = localStorage.getItem("users");
-    try {
-      return storedUsers ? JSON.parse(storedUsers) : {};
-    } catch (e) {
-      console.error("Ошибка разбора JSON из localStorage:", e);
-      return {};
-    }
-  });
+  const [users, setUsers] = useLocalStorage("users", []);
+
+  const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (modeForm === "login") {
       if (!email || !password) {
-        setError("Поля должны быть заполнены");
+        toast.error("Поля должны быть заполнены");
+        return;
+      }
+      if (!validEmail(email)) {
+        toast.error("Неверный формат электронной почты");
         return;
       }
 
-      const foundUser = Object.values(users).find(
+      const foundUser = users.find(
         (user) => user.email === email && user.password === password
       );
       if (foundUser) {
-        console.log("Вход успешен");
-        setError(null);
+        toast.success("Вход успешен");
+        login(foundUser);
+        navigate("/tasks");
       } else {
-        setError("Неверные учетные данные");
+        toast.error("Неверные учетные данные");
       }
     } else {
       if (!email || !password) {
-        setError("Поля должны быть заполнены");
+        toast.error("Поля должны быть заполнены");
         return;
       }
-      const newId = Object.keys(users).length
-        ? Math.max(...Object.keys(users).map(Number)) + 1
-        : 1;
+
+      if (!validEmail(email)) {
+        toast.error("Неверный формат электронной почты");
+        return;
+      }
 
       setUsers((prevUsers) => {
-        const newUsers = { ...prevUsers, [newId]: { email, password } };
-        localStorage.setItem("users", JSON.stringify(newUsers));
+        const newUsers = [...prevUsers, { email, password }];
         return newUsers;
       });
+      login({ email, password });
+
       setEmail("");
       setPassword("");
-      setError(null);
-      // перенапр после регистр
+      toast.success("Регистрация прошла успешно");
+      navigate("/tasks");
     }
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <div className={styles.inputField}>
-        <label htmlFor="email"></label>
         <input
-          type="email"
+          type="text"
           id="email"
+          autoComplete="off"
           value={email}
           placeholder="Введите почту"
           onChange={(e) => setEmail(e.target.value)}
         />
       </div>
       <div className={styles.inputField}>
-        <label htmlFor="password"></label>
         <input
           type="password"
           id="password"
+          autoComplete="new-password"
           value={password}
           placeholder="Введите пароль"
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
-      {error && <div className={styles.error}>{error}</div>}
       <button type="submit" className={styles.submitButton}>
         {modeForm === "login" ? "Войти" : "Зарегистрироваться"}
       </button>

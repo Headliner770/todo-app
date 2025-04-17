@@ -1,9 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kumbh+Sans:wght@100..900&display=swap");
 
-* {
+html,
+body,
+#root {
+  height: 100%;
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  overflow: hidden;
 }
 
 main {
@@ -47,22 +49,28 @@ p {
 
 body {
   font-family: "Inter";
-  --header-background-color: #ffffff;
-  --header-text-color: #000000;
+  --header-background-color: #fff;
+  --header-text-color: #000;
   --main-background-color: #f0f0f0;
-  --main-text-color: #000000;
-  --text-color: #000000;
-  --window-background-color: #ffffff;
-  background-color: var(--main-background-color);
-  color: var(--main-text-color);
+  --main-text-color: #000;
+  --text-color: #000;
+  --window-background-color: #fff;
+  --side-panel-background-color: #fff;
+  --hover-background-color: #e0e0e0;
+  --active-background-color: #ccc;
+  margin: 0;
+  padding: 0;
 }
 
 body.dark {
   font-family: "Inter";
-  --header-background-color: rgba(0, 0, 0, 0.65);
-  --header-text-color: #ffffff;
-  --main-background-color: rgba(0, 0, 0, 0.65);
-  --main-text-color: #ffffff;
-  --text-color: #ffffff;
-  --window-background-color: rgba(0, 0, 0, 0.65);
+  --header-background-color: rgba(0, 0, 0, 0.8);
+  --header-text-color: #fff;
+  --main-background-color: rgba(0, 0, 0, 0.8);
+  --main-text-color: #fff;
+  --text-color: #fff;
+  --window-background-color: rgba(0, 0, 0, 0.8);
+  --side-panel-background-color: rgba(0, 0, 0, 0);
+  --hover-background-color: rgba(0, 0, 0, 0.8);
+  --active-background-color: rgba(0, 0, 0, 0.8);
 }

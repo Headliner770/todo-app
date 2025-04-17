@@ -4,7 +4,47 @@
   padding: 0 4rem;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid #aaaaaa;
   background-color: var(--header-background-color);
   color: var(--header-text-color);
+  position: relative;
+}
+
+.header a {
+  text-decoration: none;
+  color: var(--header-text-color);
+}
+
+.actionButtons {
+  display: flex;
+  gap: 20px;
+}
+
+.logoutButton {
+  background-color: rgb(252, 111, 144);
+  color: var(--header-text-color);
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.logoutButton:hover {
+  background-color: rgb(250, 179, 196);
+}
+
+.themeButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.currentTime {
+  font-size: 18px;
+  font-weight: bold;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
