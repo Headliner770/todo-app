@@ -33,7 +33,7 @@ export const TasksPage = () => {
           </li>
           <li>
             <NavLink
-              to="Categories"
+              to="categories"
               className={({ isActive }) => (isActive ? styles.active : "")}
             >
               Категории
@@ -43,7 +43,6 @@ export const TasksPage = () => {
       </div>
       <div className={styles.content}>
         <Outlet />
-        <h1>Будущие задачи</h1>
       </div>
     </main>
   );
