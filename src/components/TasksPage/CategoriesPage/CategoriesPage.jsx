@@ -1,51 +1,90 @@
 import React, { useState } from "react";
-import styles from "./CategoriesPage.module.css";
 import { useCategories } from "../../../hooks/useCategories";
+import { PenLine, Trash2 } from "lucide-react";
+import styles from "./CategoriesPage.module.css";
 
 export const CategoriesPage = () => {
-  const { cateories, addCaategory, editCategory, deleteCategory } =
+  const { categories, addCategory, editCategory, deleteCategory } =
     useCategories();
   const [newCategory, setNewCategory] = useState();
-  const [editingCategory, setEditingCategory] = useState();
-  const [saveEdit, setSaveEdit] = useState();
+  const [editingId, setEditingId] = useState();
+  const [editingName, setEditingName] = useState();
 
-const 
+  const handlerAddCategory = (e) => {
+    e.preventDefault();
+    addCategory(newCategory);
+    setNewCategory("");
+  };
+
+  const startEditing = (category) => {
+    setEditingId(category.id);
+    setEditingName(category.name);
+  };
+
+  const saveEdit = (id) => {
+    editCategory(id, editingName);
+    setEditingId(null);
+  };
+
+  const cancelEdit = () => {
+    setEditingId(null);
+  };
 
   return (
-    <>
-      <div>
-        <h2>Категории</h2>
-      </div>
+    <div className={styles.categories}>
+      <h2>Категории</h2>
 
-      <div>
-        <form>
-          <input type="text" />
+      <div className={styles.addCategory}>
+        <form onSubmit={handlerAddCategory}>
+          <input
+            type="text"
+            value={newCategory}
+            onChange={(e) => setNewCategory(e.target.value)}
+            placeholder="Введите почту"
+          />
           <button type="submit">Добавить</button>
         </form>
       </div>
 
-      <div>
-        <div>
-          <div>
-            <input type="text" />
-            <div>
-              <button></button>
-            </div>
+      <div className={styles.categoriesList}>
+        {categories.map((category) => (
+          <div key={category.id} className={styles.categoryItem}>
+            {editingId === category.id ? (
+              <div className={styles.editForm}>
+                <input
+                  type="text"
+                  value={editingName}
+                  onChange={(e) => setEditingName(e.target.value)}
+                />
+                <div className={styles.editButtons}>
+                  <button onClick={() => saveEdit(category.id)}>
+                    Сохранить
+                  </button>
+                  <button onClick={cancelEdit}>Отмена</button>
+                </div>
+              </div>
+            ) : (
+              <div className={styles.categotyContent}>
+                <span>{category.name}</span>
+                <div className={styles.categotyButtons}>
+                  <button
+                    onClick={() => startEditing(category)}
+                    aria-label={`Редактировать категорию ${category.name}`}
+                  >
+                    <PenLine size={24} />
+                  </button>
+                  <button
+                    onClick={() => deleteCategory(category.id)}
+                    aria-label={`Удалить категорию ${category.name}`}
+                  >
+                    <Trash2 size={24} />
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
-          ) : (
-          <div>
-            <div>
-              <button>
-                <span></span>
-              </button>
-              <button>
-                <span></span>
-              </button>
-            </div>
-          </div>
-          )}
-        </div>
+        ))}
       </div>
-    </>
+    </div>
   );
 };

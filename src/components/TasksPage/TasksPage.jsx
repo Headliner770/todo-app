@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import styles from "./TasksPage.module.css";
+import { CategoriesPage } from "./CategoriesPage/CategoriesPage";
 
 export const TasksPage = () => {
   return (
@@ -43,6 +44,7 @@ export const TasksPage = () => {
       </div>
       <div className={styles.content}>
         <Outlet />
+        <CategoriesPage />
       </div>
     </main>
   );
