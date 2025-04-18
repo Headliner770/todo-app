@@ -68,7 +68,6 @@ export const UserForm = ({ modeForm }) => {
         <input
           type="text"
           id="email"
-          // autoComplete="off"
           value={email}
           placeholder="Введите почту"
           onChange={(e) => setEmail(e.target.value)}
@@ -78,7 +77,6 @@ export const UserForm = ({ modeForm }) => {
         <input
           type="password"
           id="password"
-          // autoComplete="new-password"
           value={password}
           placeholder="Введите пароль"
           onChange={(e) => setPassword(e.target.value)}

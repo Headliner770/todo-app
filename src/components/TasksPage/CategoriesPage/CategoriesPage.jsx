@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { useCategories } from "../../../hooks/useCategories";
 import { ThemeContext } from "../../Providers/ThemeProvider";
 import { PenLine, Trash2 } from "lucide-react";
+import { toast } from "react-toastify";
 import styles from "./CategoriesPage.module.css";
 
 export const CategoriesPage = () => {
@@ -21,6 +22,10 @@ export const CategoriesPage = () => {
 
   const handlerAddCategory = (e) => {
     e.preventDefault();
+    if (!newCategory.trim()) {
+      toast.error("Введите название категории");
+      return;
+    }
     addCategory(newCategory);
     setNewCategory("");
   };
@@ -31,6 +36,10 @@ export const CategoriesPage = () => {
   };
 
   const saveEdit = (id) => {
+    if (!editingName.trim()) {
+      toast.error("Введите название категории");
+      return;
+    }
     editCategory(id, editingName);
     setEditingId(null);
   };
@@ -56,7 +65,9 @@ export const CategoriesPage = () => {
             placeholder="Введите категорию"
           />
           <button type="submit">Добавить</button>
-          <button onClick={saveAllCategories}>Сохранить категории</button>
+          <button type="button" onClick={saveAllCategories}>
+            Сохранить категории
+          </button>
         </form>
       </div>
 

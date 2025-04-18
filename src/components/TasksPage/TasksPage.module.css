@@ -3,7 +3,7 @@
   height: 100%;
   background-color: var(--header-background-color);
   color: var(--header-text-color);
-  padding: 0 12px;
+  padding: 0;
 }
 
 .sidePanel {
