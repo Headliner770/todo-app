@@ -1,35 +1,41 @@
 .categories {
   color: var(--text-color);
-  padding: 50px;
+  padding: 20px 50px;
 }
 
 .addCategory {
-  margin-bottom: 30px;
+  margin-bottom: 18px;
 }
 
 .addCategory form {
   display: flex;
+  align-items: center;
 }
 
 .addCategory input {
-  width: 250px;
+  width: 300px;
   padding: 10px;
   border-radius: 15px;
-  border: 2px solid black;
+  background-color: #fff;
+  font-weight: 700;
 }
 
 .addCategory button {
-  padding: 10px 15px;
-  background-color: aqua;
-  color: black;
+  padding: 9px 20px;
+  background-color: #ba52ff;
   border-radius: 15px;
   cursor: pointer;
+  font-size: 16px;
+  color: var(--text-color);
+  border: none;
+  margin-left: 10px;
+  font-weight: 700;
 }
 
 .categoriesList {
   display: flex;
   flex-direction: column;
-  gap: 10;
+  gap: 4px;
 }
 
 .categoryItem {
@@ -37,26 +43,37 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  border: 1px solid black;
   border-radius: 10px;
   background: var(--task-background-color);
   margin-bottom: 18px;
+  font-size: 24px;
+  font-weight: 700;
+  background-color: var(--task-background-color);
 }
 
 .categoryContent {
   display: flex;
-
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .categoryButtons {
   display: flex;
-  gap: 5px;
+  gap: 15px;
+}
+
+.actionButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 .editForm {
   display: flex;
-  gap: 10;
+  gap: 10px;
 }
 
 .error {

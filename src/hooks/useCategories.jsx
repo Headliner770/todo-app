@@ -1,4 +1,3 @@
-// import { useState } from "react";
 import { useLocalStorage } from "./useLocalStorage";
 
 export const useCategories = () => {
@@ -20,7 +19,7 @@ export const useCategories = () => {
   };
 
   const editCategory = (id, newName) => {
-    if (!name.trim()) return;
+    if (!newName.trim()) return;
     setCategories(
       categories.map((category) =>
         category.id === id ? { ...category, name: newName } : category

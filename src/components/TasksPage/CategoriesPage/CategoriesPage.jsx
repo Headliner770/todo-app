@@ -1,14 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useCategories } from "../../../hooks/useCategories";
+import { ThemeContext } from "../../Providers/ThemeProvider";
 import { PenLine, Trash2 } from "lucide-react";
 import styles from "./CategoriesPage.module.css";
 
 export const CategoriesPage = () => {
-  const { categories, addCategory, editCategory, deleteCategory } =
-    useCategories();
+  const {
+    categories,
+    addCategory,
+    editCategory,
+    deleteCategory,
+    setCategories,
+  } = useCategories();
   const [newCategory, setNewCategory] = useState("");
   const [editingId, setEditingId] = useState(null);
   const [editingName, setEditingName] = useState("");
+  const [theme] = useContext(ThemeContext);
+
+  const iconColor = theme === "light" ? "black" : "white";
 
   const handlerAddCategory = (e) => {
     e.preventDefault();
@@ -30,6 +39,10 @@ export const CategoriesPage = () => {
     setEditingId(null);
   };
 
+  const saveAllCategories = () => {
+    setCategories([...categories]);
+  };
+
   return (
     <div className={styles.categories}>
       <h2>Категории</h2>
@@ -43,6 +56,7 @@ export const CategoriesPage = () => {
             placeholder="Введите категорию"
           />
           <button type="submit">Добавить</button>
+          <button onClick={saveAllCategories}>Сохранить категории</button>
         </form>
       </div>
 
@@ -70,14 +84,16 @@ export const CategoriesPage = () => {
                   <button
                     onClick={() => startEditing(category)}
                     aria-label={`Редактировать категорию ${category.name}`}
+                    className={styles.actionButton}
                   >
-                    <PenLine size={24} />
+                    <PenLine size={24} color={iconColor} />
                   </button>
                   <button
                     onClick={() => deleteCategory(category.id)}
                     aria-label={`Удалить категорию ${category.name}`}
+                    className={styles.actionButton}
                   >
-                    <Trash2 size={24} />
+                    <Trash2 size={24} color={iconColor} />
                   </button>
                 </div>
               </div>
