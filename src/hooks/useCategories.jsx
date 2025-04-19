@@ -31,5 +31,11 @@ export const useCategories = () => {
     setCategories(categories.filter((category) => category.id !== id));
   };
 
-  return { categories, addCategory, editCategory, deleteCategory };
+  return {
+    categories,
+    addCategory,
+    editCategory,
+    deleteCategory,
+    setCategories,
+  };
 };
