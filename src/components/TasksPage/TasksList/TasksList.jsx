@@ -1,4 +1,3 @@
-import React from 'react'
 import { useTasks } from '../../../hooks/useTasks';
 import { useCategories } from '../../../hooks/useCategories'
 
