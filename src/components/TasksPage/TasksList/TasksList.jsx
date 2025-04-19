@@ -1,10 +1,7 @@
-import { useTasks } from '../../../hooks/useTasks';
-import { useCategories } from '../../../hooks/useCategories'
+import React from "react";
 
+const TasksList = () => {
+  return <div>TasksList</div>;
+};
 
-export const TasksList = () => {
-  return (
-    const {} = useTasks();
-    const { categories } = useCategories();
-  )
-}
+export default TasksList;
