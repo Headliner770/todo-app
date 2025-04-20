@@ -1,4 +1,3 @@
-import React from "react";
 import { useLocalStorage } from "./useLocalStorage";
 
 export const useTasks = () => {
@@ -9,15 +8,44 @@ export const useTasks = () => {
       id: Date.now().toString(),
       complete: false,
       deleted: false,
+      created: new Date().toISOString(),
+      ...tasks,
     };
     setTasks([...tasks, newTask]);
   };
 
-  const editTask = () => {};
+  const editTask = (id, updatedData) => {
+    setTasks(
+      tasks.map((task) => (task.id === id ? { ...task, ...updatedData } : task))
+    );
+  };
 
-  const deleteTask = () => {};
+  const deleteTask = (id) => {
+    setTasks(
+      tasks.map((task) => (task.id === id ? { ...task, deleted: true } : task))
+    );
+  };
 
-  const toggleExecution = () => {};
+  const toggleComplete = (id) => {
+    setTasks(
+      tasks.map((task) =>
+        task.id === id ? { ...task, completed: !task.completed } : task
+      )
+    );
+  };
 
-  return { tasks, addTask, editTask, deleteTask, toggleExecution };
+  const receiveTasks = (filter) => {
+    switch (filter) {
+      case "all":
+        return tasks.filter((task) => !task.deleted);
+      case "completed":
+        return tasks.filter((task) => task.completed && !task.deleted);
+      case "deleted":
+        return tasks.filter((task) => task.deleted);
+      default:
+        return tasks.filter((task) => !task.deleted);
+    }
+  };
+
+  return { tasks, addTask, editTask, deleteTask, toggleComplete, receiveTasks };
 };
