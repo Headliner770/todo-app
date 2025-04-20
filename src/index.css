@@ -58,6 +58,8 @@ body {
   --hover-background-color: #e0e0e0;
   --active-background-color: #ccc;
   --task-background-color: #d9d9d9;
+  --modal-background-color: #f0f0f0;
+  --modal-text-color: #000;
   margin: 0;
   padding: 0;
 }
@@ -74,4 +76,6 @@ body.dark {
   --hover-background-color: rgba(0, 0, 0, 0.8);
   --active-background-color: rgba(0, 0, 0, 0.8);
   --task-background-color: rgba(0, 0, 0, 0.8);
+  --modal-background-color: rgb(77, 77, 77);
+  --modal-text-color: #fff;
 }

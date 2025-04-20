@@ -12,7 +12,7 @@ export const CategoriesPage = () => {
   const [newCategory, setNewCategory] = useState("");
   const [editingId, setEditingId] = useState(null);
   const [editingName, setEditingName] = useState("");
-  const [modalOpen, setModalOpen] = useState("");
+  const [modalOpen, setModalOpen] = useState(false);
   const [theme] = useContext(ThemeContext);
 
   const iconColor = theme === "light" ? "black" : "white";
@@ -23,7 +23,7 @@ export const CategoriesPage = () => {
 
   const modalWindowClose = () => {
     setModalOpen(false);
-    setNewCategory;
+    setNewCategory("");
   };
 
   const handlerAddCategory = (e) => {
@@ -34,6 +34,7 @@ export const CategoriesPage = () => {
     }
     addCategory(newCategory);
     setNewCategory("");
+    setModalOpen(false);
   };
 
   const startEditing = (category) => {
@@ -59,9 +60,7 @@ export const CategoriesPage = () => {
       <h2>Категории</h2>
 
       <div className={styles.addCategoryButton}>
-        <button onClick={modalWindowOpen}>
-          Добавить
-        </button>
+        <button onClick={modalWindowOpen}>Добавить</button>
       </div>
 
       <div className={styles.categoriesList}>
@@ -116,7 +115,8 @@ export const CategoriesPage = () => {
             type="text"
             value={newCategory}
             onChange={(e) => setNewCategory(e.target.value)}
-            className="styles.modalInput"
+            placeholder="Введите категорию"
+            className={styles.modalInput}
           />
           <div className={styles.modalButtons}>
             <button
@@ -124,7 +124,7 @@ export const CategoriesPage = () => {
               onClick={modalWindowClose}
               className={styles.cancelButton}
             >
-              Отмена
+              Отменить
             </button>
             <button type="submit" className={styles.addButton}>
               Добавить
