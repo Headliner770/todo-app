@@ -1,15 +1,10 @@
 .categories {
   color: var(--text-color);
-  padding: 20px 50px;
+  padding: 25px 100px;
 }
 
-.addCategory {
+.addCategoryButton {
   margin-bottom: 18px;
-}
-
-.addCategory form {
-  display: flex;
-  align-items: center;
 }
 
 .addCategory input {
@@ -74,9 +69,4 @@
 .editForm {
   display: flex;
   gap: 10px;
-}
-
-.error {
-  color: red;
-  margin-top: 15px;
 }

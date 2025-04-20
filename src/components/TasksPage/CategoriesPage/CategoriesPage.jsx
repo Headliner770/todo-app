@@ -1,24 +1,30 @@
 import React, { useState, useContext } from "react";
 import { useCategories } from "../../../hooks/useCategories";
 import { ThemeContext } from "../../Providers/ThemeProvider";
+import { Modal } from "../../Modal/Modal";
 import { PenLine, Trash2 } from "lucide-react";
 import { toast } from "react-toastify";
 import styles from "./CategoriesPage.module.css";
 
 export const CategoriesPage = () => {
-  const {
-    categories,
-    addCategory,
-    editCategory,
-    deleteCategory,
-    setCategories,
-  } = useCategories();
+  const { categories, addCategory, editCategory, deleteCategory } =
+    useCategories();
   const [newCategory, setNewCategory] = useState("");
   const [editingId, setEditingId] = useState(null);
   const [editingName, setEditingName] = useState("");
+  const [modalOpen, setModalOpen] = useState("");
   const [theme] = useContext(ThemeContext);
 
   const iconColor = theme === "light" ? "black" : "white";
+
+  const modalWindowOpen = () => {
+    setModalOpen(true);
+  };
+
+  const modalWindowClose = () => {
+    setModalOpen(false);
+    setNewCategory;
+  };
 
   const handlerAddCategory = (e) => {
     e.preventDefault();
@@ -48,27 +54,14 @@ export const CategoriesPage = () => {
     setEditingId(null);
   };
 
-  const saveAllCategories = () => {
-    setCategories([...categories]);
-  };
-
   return (
     <div className={styles.categories}>
       <h2>Категории</h2>
 
-      <div className={styles.addCategory}>
-        <form onSubmit={handlerAddCategory}>
-          <input
-            type="text"
-            value={newCategory}
-            onChange={(e) => setNewCategory(e.target.value)}
-            placeholder="Введите категорию"
-          />
-          <button type="submit">Добавить</button>
-          <button type="button" onClick={saveAllCategories}>
-            Сохранить категории
-          </button>
-        </form>
+      <div className={styles.addCategoryButton}>
+        <button onClick={modalWindowOpen}>
+          Добавить
+        </button>
       </div>
 
       <div className={styles.categoriesList}>
@@ -112,6 +105,33 @@ export const CategoriesPage = () => {
           </div>
         ))}
       </div>
+
+      <Modal
+        isOpen={modalOpen}
+        onClose={modalWindowClose}
+        title="Добавить категорию"
+      >
+        <form onSubmit={handlerAddCategory}>
+          <input
+            type="text"
+            value={newCategory}
+            onChange={(e) => setNewCategory(e.target.value)}
+            className="styles.modalInput"
+          />
+          <div className={styles.modalButtons}>
+            <button
+              type="button"
+              onClick={modalWindowClose}
+              className={styles.cancelButton}
+            >
+              Отмена
+            </button>
+            <button type="submit" className={styles.addButton}>
+              Добавить
+            </button>
+          </div>
+        </form>
+      </Modal>
     </div>
   );
 };
