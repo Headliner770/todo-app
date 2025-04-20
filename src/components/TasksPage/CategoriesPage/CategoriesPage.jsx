@@ -104,7 +104,6 @@ export const CategoriesPage = () => {
           </div>
         ))}
       </div>
-
       <Modal
         isOpen={modalOpen}
         onClose={modalWindowClose}
