@@ -1,12 +1,12 @@
 .tasksListBase {
-  padding: 32px;
+  padding: 48px;
 }
 
 .tasksHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .addButton {
@@ -23,7 +23,7 @@
 .tasksList {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 8px;
 }
 
 .taskElement {
@@ -31,11 +31,24 @@
   align-items: center;
   gap: 16px;
   border-radius: 16px;
-  color: black;
-  background-color: #fff;
-  padding: 16px 24px;
+  color: var(--text-color);
+  background-color: var(--task-background-color);
+  padding: 16px 16px;
   font-size: 24px;
   font-weight: 700;
+  justify-content: space-between;
+}
+
+.taskLeft {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.taskActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .completed {
@@ -45,10 +58,12 @@
 
 .categoryMark {
   background: #ededed;
+  color: black;
   border-radius: 16px;
-  padding: 4px 14px;
-  font-size: 16px;
+  padding: 8px 20px;
+  font-size: 20px;
   font-weight: 700;
+  margin-right: 20px;
 }
 
 .modalForm {
@@ -65,6 +80,10 @@
   border-radius: 16px;
   font-size: 18px;
   font-weight: 700;
+}
+
+.modalInput {
+  width: 92%;
 }
 
 .modalButtons {
@@ -96,25 +115,63 @@
 .hideCompletedLabel {
   font-size: 20px;
   font-weight: 700;
-  margin-right: 20px;
+  margin-right: 30px;
+}
+
+.taskElement input[type="checkbox"] {
+  appearance: none;
+  width: 41px;
+  height: 35px;
+  border-radius: 16px;
+  background-color: white;
+  position: relative;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.taskElement input[type="checkbox"]:checked {
+  background-color: #ba52ff;
+}
+
+.taskElement input[type="checkbox"]:checked::after {
+  content: "✓";
+  font-size: 24px;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .hideCompletedLabel input[type="checkbox"] {
-  appearance: none;
-  width: 24px;
-  height: 24px;
-  border-radius: 7px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
   background-color: #d9d9d9;
   position: relative;
   cursor: pointer;
   border: none;
+  outline: none;
 }
 
 .hideCompletedLabel input[type="checkbox"]:checked {
-  background-color: rgb(202, 202, 246);
+  background-color: #ba52ff;
 }
 
-.hideCompletedLabel .input[type="checkbox"]:checked::after {
+.hideCompletedLabel input[type="checkbox"]:checked::after {
   content: "✓";
-  font-size: 20px;
+  font-size: 12px;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.actionButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px 10px;
 }

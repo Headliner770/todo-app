@@ -1,15 +1,18 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useTasks } from "../../../hooks/useTasks.jsx";
 import { useCategories } from "../../../hooks/useCategories.jsx";
+import { ThemeContext } from "../../Providers/ThemeProvider.jsx";
 import { Modal } from "../../Modal/Modal";
 import { PenLine, Trash2 } from "lucide-react";
 import { toast } from "react-toastify";
 import styles from "./TasksList.module.css";
 
 export const TasksList = ({ filter = "all" }) => {
-  const { tasks, addTask, editTask, deleteTask, toggleComplete, receiveTasks } =
+  const { addTask, editTask, deleteTask, toggleComplete, receiveTasks } =
     useTasks();
   const { categories } = useCategories();
+  const [theme] = useContext(ThemeContext);
+  const iconColor = theme === "light" ? "black" : "white";
 
   const [modalOpen, setModalOpen] = useState(false);
   const [editingTask, setEditingTask] = useState(null);
@@ -18,6 +21,13 @@ export const TasksList = ({ filter = "all" }) => {
   const [hideCompleted, setHideCompleted] = useState(false);
 
   const visibleTasks = receiveTasks(filter, hideCompleted);
+
+  const titles = {
+    all: "Все задачи",
+    completed: "Выполненные",
+    deleted: "Удаленные",
+  };
+  const title = titles[filter] || "Задачи";
 
   const openAddModal = () => {
     setEditingTask(null);
@@ -66,51 +76,57 @@ export const TasksList = ({ filter = "all" }) => {
   return (
     <div className={styles.tasksListBase}>
       <div className={styles.tasksHeader}>
-        <h2>Все задачи ({tasks.length})</h2>
-        <div className={styles.actionsHeader}>
-          <label className={styles.hideCompletedLabel}>
-            <input
-              type="checkbox"
-              checked={hideCompleted}
-              onChange={() => setHideCompleted((v) => !v)}
-            />
-            Скрыть выполненные
-          </label>
-          <button className={styles.addButton} onClick={openAddModal}>
-            Добавить
-          </button>
-        </div>
+        <h2>{title}</h2>
+        {filter === "all" && (
+          <div className={styles.actionsHeader}>
+            <label className={styles.hideCompletedLabel}>
+              <input
+                type="checkbox"
+                checked={hideCompleted}
+                onChange={() => setHideCompleted((v) => !v)}
+              />
+              Скрыть выполненные
+            </label>
+            <button className={styles.addButton} onClick={openAddModal}>
+              Добавить
+            </button>
+          </div>
+        )}
       </div>
       <div className={styles.tasksList}>
         {visibleTasks.map((task) => {
           const category = categories.find((c) => c.id === task.categoryId);
           return (
             <div key={task.id} className={styles.taskElement}>
-              <input
-                type="checkbox"
-                checked={task.completed}
-                onChange={() => toggleComplete(task.id)}
-              />
-              <span className={task.completed ? styles.completed : ""}>
-                {task.title}
-              </span>
-              {category && (
-                <span className={styles.categoryMark}>{category.name}</span>
-              )}
-              <button
-                className={styles.actionButton}
-                onClick={() => openEditModal(task)}
-                aria-label="Редактировать"
-              >
-                <PenLine size={24} />
-              </button>
-              <button
-                className={styles.actionButton}
-                onClick={() => deleteTask(task.id)}
-                aria-label="Удалить"
-              >
-                <Trash2 size={24} />
-              </button>
+              <div className={styles.taskLeft}>
+                <input
+                  type="checkbox"
+                  checked={task.completed}
+                  onChange={() => toggleComplete(task.id)}
+                />
+                <span className={task.completed ? styles.completed : ""}>
+                  {task.title}
+                </span>
+              </div>
+              <div className={styles.taskActions}>
+                {category && (
+                  <span className={styles.categoryMark}>{category.name}</span>
+                )}
+                <button
+                  className={styles.actionButton}
+                  onClick={() => openEditModal(task)}
+                  aria-label="Редактировать"
+                >
+                  <PenLine size={24} color={iconColor} />
+                </button>
+                <button
+                  className={styles.actionButton}
+                  onClick={() => deleteTask(task.id)}
+                  aria-label="Удалить"
+                >
+                  <Trash2 size={24} color={iconColor} />
+                </button>
+              </div>
             </div>
           );
         })}

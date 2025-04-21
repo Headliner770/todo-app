@@ -35,15 +35,19 @@ export const useTasks = () => {
   };
 
   const receiveTasks = (filter, hideCompleted) => {
-    let filtered = tasks.filter((task) => !task.deleted);
+    let filteredTasks = tasks;
 
     if (filter === "completed") {
-      filtered = filtered.filter((task) => task.completed);
+      filteredTasks = filteredTasks.filter((task) => task.completed);
+    } else if (filter === "deleted") {
+      filteredTasks = filteredTasks.filter((task) => task.deleted);
+    } else {
+      filteredTasks = filteredTasks.filter((task) => !task.deleted);
     }
     if (hideCompleted) {
-      filtered = filtered.filter((task) => !task.completed);
+      filteredTasks = filteredTasks.filter((task) => !task.completed);
     }
-    return filtered;
+    return filteredTasks;
   };
 
   return { tasks, addTask, editTask, deleteTask, toggleComplete, receiveTasks };
