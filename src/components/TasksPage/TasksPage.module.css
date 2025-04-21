@@ -3,13 +3,13 @@
   height: 100%;
   background-color: var(--header-background-color);
   color: var(--header-text-color);
-  padding: 0 12px;
+  padding: 0;
 }
 
 .sidePanel {
   width: 300px;
   background-color: var(--side-panel-background-color);
-  border-right: 1px solid #aaaaaa;
+  border-right: 1px solid #aaa;
 }
 
 .sidePanel ul {
@@ -21,7 +21,6 @@
 .sidePanel li {
   font-size: 20px;
   font-weight: 700;
-  margin-bottom: 10px;
   cursor: pointer;
   color: var(--text-color);
   padding: 8px 12px;
@@ -43,8 +42,12 @@
   color: var(--active-text-color);
 }
 
+.menuSidePanel {
+  border-bottom: 2px solid #aaa;
+  margin-bottom: 10px;
+}
+
 .content {
-  padding: 30px;
   flex-grow: 1;
 }
 

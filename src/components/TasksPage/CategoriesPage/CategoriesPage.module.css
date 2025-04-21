@@ -1,0 +1,106 @@
+.categories {
+  color: var(--text-color);
+  padding: 25px 100px;
+}
+
+.addCategoryButton {
+  margin-bottom: 18px;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 35px;
+}
+
+.addCategoryButton button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  border-radius: 16px;
+  background-color: #ba52ff;
+  border: none;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.categoriesList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.categoryItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  background: var(--task-background-color);
+  margin-bottom: 18px;
+  font-size: 24px;
+  font-weight: 700;
+  background-color: var(--task-background-color);
+}
+
+.categoryContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.categoryButtons {
+  display: flex;
+  gap: 15px;
+}
+
+.actionButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.editForm {
+  display: flex;
+  gap: 10px;
+}
+
+.modalInput {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 16px;
+  background-color: #d9d9d9;
+  font-weight: 700;
+  font-size: 24px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.modalButtons {
+  display: flex;
+  gap: 21px;
+  margin-top: 20px;
+}
+
+.cancelButton,
+.addButton {
+  flex: 1 1 0;
+  border: none;
+  border-radius: 16px;
+  padding: 10px 25px;
+  cursor: pointer;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.cancelButton {
+  background-color: #d9d9d9;
+  color: black;
+}
+
+.addButton {
+  background-color: #ba52ff;
+  color: white;
+}
