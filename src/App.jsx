@@ -3,14 +3,15 @@ import { Header } from "./components/Header/Header.jsx";
 import { AccessManagement } from "./components/Auth/AccessManagement/AccessManagement.jsx";
 import { TasksPage } from "./components/TasksPage/TasksPage.jsx";
 import { CategoriesPage } from "./components/TasksPage/CategoriesPage/CategoriesPage.jsx";
+import { TasksList } from "./components/TasksPage/TasksList/TasksList.jsx";
 import { AppProvider } from "./components/Providers/AppProvider.jsx";
 import { useAuth } from "./hooks/useAuth.jsx";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const AllTasks = () => <h2>Все задачи</h2>;
-const CompletedTasks = () => <h2>Выполненные</h2>;
-const DeleteTasks = () => <h2>Удаленные</h2>;
+const AllTasks = () => <TasksList filter="all" />;
+const CompletedTasks = () => <TasksList filter="completed" />;
+const DeleteTasks = () => <TasksList filter="deleted" />;
 const NotFoundPage = () => <h2>Страница не найдена</h2>;
 
 const PrivateRoute = ({ children }) => {

@@ -1,0 +1,120 @@
+.tasksListBase {
+  padding: 32px;
+}
+
+.tasksHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.addButton {
+  background-color: #ba52ff;
+  color: white;
+  border: none;
+  border-radius: 16px;
+  padding: 10px 30px;
+  font-size: 24px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.tasksList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.taskElement {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-radius: 16px;
+  color: black;
+  background-color: #fff;
+  padding: 16px 24px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+.categoryMark {
+  background: #ededed;
+  border-radius: 16px;
+  padding: 4px 14px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.modalForm {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.modalInput,
+.modalSelect {
+  width: 100%;
+  padding: 24px;
+  border: none;
+  border-radius: 16px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.modalButtons {
+  display: flex;
+  gap: 16px;
+}
+
+.cancelButton,
+.plusButton {
+  flex: 1;
+  padding: 14px 0;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cancelButton {
+  background-color: #d9d9d9;
+  color: black;
+}
+
+.plusButton {
+  background-color: #ba52ff;
+  color: white;
+}
+
+.hideCompletedLabel {
+  font-size: 20px;
+  font-weight: 700;
+  margin-right: 20px;
+}
+
+.hideCompletedLabel input[type="checkbox"] {
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 7px;
+  background-color: #d9d9d9;
+  position: relative;
+  cursor: pointer;
+  border: none;
+}
+
+.hideCompletedLabel input[type="checkbox"]:checked {
+  background-color: rgb(202, 202, 246);
+}
+
+.hideCompletedLabel .input[type="checkbox"]:checked::after {
+  content: "✓";
+  font-size: 20px;
+}
