@@ -1,4 +1,5 @@
 import { useState, useContext } from "react";
+import { useLocation } from "react-router-dom";
 import { useTasks } from "../../../hooks/useTasks.jsx";
 import { useCategories } from "../../../hooks/useCategories.jsx";
 import { ThemeContext } from "../../Providers/ThemeProvider.jsx";
@@ -7,9 +8,12 @@ import { PenLine, Trash2 } from "lucide-react";
 import { toast } from "react-toastify";
 import styles from "./TasksList.module.css";
 
-export const TasksList = ({ filter = "all" }) => {
+export const TasksList = () => {
   const { addTask, editTask, deleteTask, toggleComplete, receiveTasks } =
     useTasks();
+  const location = useLocation();
+  const pathSegment = location.pathname.split("/").pop();
+
   const { categories } = useCategories();
   const [theme] = useContext(ThemeContext);
   const iconColor = theme === "light" ? "black" : "white";
@@ -20,6 +24,8 @@ export const TasksList = ({ filter = "all" }) => {
   const [taskCategory, setTaskCategory] = useState(categories[0]?.id || "");
   const [hideCompleted, setHideCompleted] = useState(false);
 
+  const validFilters = ["all", "completed", "deleted"];
+  const filter = validFilters.includes(pathSegment) ? pathSegment : "all";
   const visibleTasks = receiveTasks(filter, hideCompleted);
 
   const titles = {

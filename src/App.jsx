@@ -9,9 +9,6 @@ import { useAuth } from "./hooks/useAuth.jsx";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const AllTasks = () => <TasksList filter="all" />;
-const CompletedTasks = () => <TasksList filter="completed" />;
-const DeleteTasks = () => <TasksList filter="deleted" />;
 const NotFoundPage = () => <h2>Страница не найдена</h2>;
 
 const PrivateRoute = ({ children }) => {
@@ -35,10 +32,10 @@ export default function App() {
               </PrivateRoute>
             }
           >
-            <Route index element={<AllTasks />} />
-            <Route path="all" element={<AllTasks />} />
-            <Route path="completed" element={<CompletedTasks />} />
-            <Route path="deleted" element={<DeleteTasks />} />
+            <Route index element={<TasksList />} />
+            <Route path="all" element={<TasksList />} />
+            <Route path="completed" element={<TasksList />} />
+            <Route path="deleted" element={<TasksList />} />
             <Route path="categories" element={<CategoriesPage />} />
           </Route>
           <Route path="*" element={<NotFoundPage />} />
