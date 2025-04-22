@@ -3,13 +3,13 @@ import { useLocalStorage } from "./useLocalStorage";
 export const useTasks = () => {
   const [tasks, setTasks] = useLocalStorage("tasks", []);
 
-  const addTask = (tasks) => {
+  const addTask = (taskData) => {
     const newTask = {
       id: Date.now().toString(),
-      complete: false,
+      completed: false,
       deleted: false,
-      created: new Date().toISOString(),
-      ...tasks,
+      createdAt: new Date().toISOString(),
+      ...taskData,
     };
     setTasks([...tasks, newTask]);
   };
@@ -34,17 +34,20 @@ export const useTasks = () => {
     );
   };
 
-  const receiveTasks = (filter) => {
-    switch (filter) {
-      case "all":
-        return tasks.filter((task) => !task.deleted);
-      case "completed":
-        return tasks.filter((task) => task.completed && !task.deleted);
-      case "deleted":
-        return tasks.filter((task) => task.deleted);
-      default:
-        return tasks.filter((task) => !task.deleted);
+  const receiveTasks = (filter, hideCompleted) => {
+    let filteredTasks = tasks;
+
+    if (filter === "completed") {
+      filteredTasks = filteredTasks.filter((task) => task.completed);
+    } else if (filter === "deleted") {
+      filteredTasks = filteredTasks.filter((task) => task.deleted);
+    } else {
+      filteredTasks = filteredTasks.filter((task) => !task.deleted);
     }
+    if (hideCompleted) {
+      filteredTasks = filteredTasks.filter((task) => !task.completed);
+    }
+    return filteredTasks;
   };
 
   return { tasks, addTask, editTask, deleteTask, toggleComplete, receiveTasks };

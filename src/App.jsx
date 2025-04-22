@@ -3,14 +3,12 @@ import { Header } from "./components/Header/Header.jsx";
 import { AccessManagement } from "./components/Auth/AccessManagement/AccessManagement.jsx";
 import { TasksPage } from "./components/TasksPage/TasksPage.jsx";
 import { CategoriesPage } from "./components/TasksPage/CategoriesPage/CategoriesPage.jsx";
+import { TasksList } from "./components/TasksPage/TasksList/TasksList.jsx";
 import { AppProvider } from "./components/Providers/AppProvider.jsx";
 import { useAuth } from "./hooks/useAuth.jsx";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const AllTasks = () => <h2>Все задачи</h2>;
-const CompletedTasks = () => <h2>Выполненные</h2>;
-const DeleteTasks = () => <h2>Удаленные</h2>;
 const NotFoundPage = () => <h2>Страница не найдена</h2>;
 
 const PrivateRoute = ({ children }) => {
@@ -34,10 +32,10 @@ export default function App() {
               </PrivateRoute>
             }
           >
-            <Route index element={<AllTasks />} />
-            <Route path="all" element={<AllTasks />} />
-            <Route path="completed" element={<CompletedTasks />} />
-            <Route path="deleted" element={<DeleteTasks />} />
+            <Route index element={<TasksList />} />
+            <Route path="all" element={<TasksList />} />
+            <Route path="completed" element={<TasksList />} />
+            <Route path="deleted" element={<TasksList />} />
             <Route path="categories" element={<CategoriesPage />} />
           </Route>
           <Route path="*" element={<NotFoundPage />} />

@@ -1,0 +1,187 @@
+.tasksListBase {
+  padding: 60px;
+}
+
+.tasksHeader {
+  margin-top: 0;
+  font-size: 36px;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tasksHeader h2 {
+  margin-top: 0;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.addButton {
+  background-color: #ba52ff;
+  color: white;
+  border: none;
+  border-radius: 16px;
+  padding: 10px 30px;
+  font-size: 24px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 35px;
+}
+
+.tasksList {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.taskElement {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-radius: 16px;
+  color: var(--text-color);
+  background-color: var(--task-background-color);
+  padding: 11px 20px 11px 12px;
+  font-size: 24px;
+  font-weight: 700;
+  justify-content: space-between;
+}
+
+.taskLeft {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.taskActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+.categoryMark {
+  background: #ededed;
+  color: black;
+  border-radius: 16px;
+  padding: 2px 20px;
+  font-size: 20px;
+  font-weight: 700;
+  margin-right: 20px;
+  width: 40%;
+}
+
+.modalForm {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.modalInput,
+.modalSelect {
+  width: 100%;
+  padding: 24px;
+  border: none;
+  border-radius: 16px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.modalInput {
+  width: 92%;
+}
+
+.modalButtons {
+  display: flex;
+  gap: 16px;
+}
+
+.cancelButton,
+.plusButton {
+  flex: 1;
+  padding: 14px 0;
+  border: none;
+  border-radius: 12px;
+  font-size: 32px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cancelButton {
+  background-color: #d9d9d9;
+  color: black;
+}
+
+.plusButton {
+  background-color: #ba52ff;
+  color: white;
+}
+
+.hideCompletedLabel {
+  font-size: 20px;
+  font-weight: 700;
+  margin-right: 30px;
+}
+
+.taskElement input[type="checkbox"] {
+  appearance: none;
+  width: 41px;
+  height: 35px;
+  border-radius: 16px;
+  background-color: white;
+  position: relative;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.taskElement input[type="checkbox"]:checked {
+  background-color: #ba52ff;
+}
+
+.taskElement input[type="checkbox"]:checked::after {
+  content: "✓";
+  font-size: 24px;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hideCompletedLabel input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #d9d9d9;
+  position: relative;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.hideCompletedLabel input[type="checkbox"]:checked {
+  background-color: #ba52ff;
+}
+
+.hideCompletedLabel input[type="checkbox"]:checked::after {
+  content: "✓";
+  font-size: 12px;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.actionButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding-right: 8px;
+}

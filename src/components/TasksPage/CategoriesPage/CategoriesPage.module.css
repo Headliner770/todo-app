@@ -1,41 +1,58 @@
 .categories {
   color: var(--text-color);
-  padding: 25px 100px;
+  padding: 60px;
+}
+
+.categoriesHeader {
+  margin-top: 0;
+  font-size: 36px;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.categoriesHeader h2 {
+  margin-top: 0;
+  font-size: 36px;
+  font-weight: 700;
 }
 
 .addCategoryButton {
-  margin-bottom: 18px;
   display: flex;
   justify-content: flex-end;
   margin-bottom: 35px;
+  text-align: center;
 }
 
 .addCategoryButton button {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 20px;
+  /* display: flex;
+  align-items: center; */
+  /* gap: 10px; */
+  padding: 10px 30px;
   border-radius: 16px;
   background-color: #ba52ff;
+  color: white;
   border: none;
   font-size: 24px;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .categoriesList {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 18px;
 }
 
 .categoryItem {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  border-radius: 10px;
+  padding: 16px 28px;
+  border-radius: 16px;
   background: var(--task-background-color);
-  margin-bottom: 18px;
+  /* margin-bottom: 18px; */
   font-size: 24px;
   font-weight: 700;
   background-color: var(--task-background-color);
