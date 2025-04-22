@@ -2,17 +2,19 @@
   padding: 60px;
 }
 
-h2 {
+.tasksHeader {
   margin-top: 0;
   font-size: 36px;
   font-weight: 700;
-}
-
-.tasksHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 24px;
+}
+
+.tasksHeader h2 {
+  margin-top: 0;
+  font-size: 36px;
+  font-weight: 700;
 }
 
 .addButton {
@@ -24,12 +26,13 @@ h2 {
   font-size: 24px;
   font-weight: 700;
   cursor: pointer;
+  margin-bottom: 35px;
 }
 
 .tasksList {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 18px;
 }
 
 .taskElement {
@@ -39,7 +42,7 @@ h2 {
   border-radius: 16px;
   color: var(--text-color);
   background-color: var(--task-background-color);
-  padding: 16px 28px;
+  padding: 11px 28px;
   font-size: 24px;
   font-weight: 700;
   justify-content: space-between;

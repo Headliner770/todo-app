@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
-import { useCategories } from "../../../hooks/useCategories";
-import { ThemeContext } from "../../Providers/ThemeProvider";
-import { Modal } from "../../Modal/Modal";
+import { useCategories } from "../../../hooks/useCategories.jsx";
+import { ThemeContext } from "../../Providers/ThemeProvider.jsx";
+import { Modal } from "../../Modal/Modal.jsx";
 import { PenLine, Trash2 } from "lucide-react";
 import { toast } from "react-toastify";
 import styles from "./CategoriesPage.module.css";
@@ -57,10 +57,11 @@ export const CategoriesPage = () => {
 
   return (
     <div className={styles.categories}>
-      <h2>Категории</h2>
-
-      <div className={styles.addCategoryButton}>
-        <button onClick={modalWindowOpen}>Добавить</button>
+      <div className={styles.categoriesHeader}>
+        <h2>Категории</h2>
+        <div className={styles.addCategoryButton}>
+          <button onClick={modalWindowOpen}>Добавить</button>
+        </div>
       </div>
 
       <div className={styles.categoriesList}>

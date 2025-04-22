@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import { useTasks } from "../../../hooks/useTasks.jsx";
 import { useCategories } from "../../../hooks/useCategories.jsx";
 import { ThemeContext } from "../../Providers/ThemeProvider.jsx";
-import { Modal } from "../../Modal/Modal";
+import { Modal } from "../../Modal/Modal.jsx";
 import { PenLine, Trash2 } from "lucide-react";
 import { toast } from "react-toastify";
 import styles from "./TasksList.module.css";
